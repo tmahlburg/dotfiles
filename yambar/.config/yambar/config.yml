@@ -1,0 +1,124 @@
+# Typical laptop setup, with wifi, brightness, battery etc, for
+# i3/Sway.
+
+# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
+# the sway-xkb module with the xkb module.
+
+# fonts we'll be re-using here and there
+awesome: &awesome FontAwesome 5 Free:style=solid:pixelsize=14
+awesome_brands: &awesome_brands FontAwesome 5 Brands:pixelsize=16
+
+std_underline: &std_underline {underline: { size: 2, color: ff0000ff}}
+
+# This is THE bar configuration
+bar:
+  monitor: eDP-1
+  height: 30
+  location: bottom
+  spacing: 5
+  margin: 0
+
+  # Default font
+  font: monospace:pixelsize=16
+
+  foreground: 000000ff
+  background: ffffffff
+
+  border:
+    width: 3
+    color: 000000ff
+    margin: 10
+    top-margin: 0
+
+  left:
+    - i3:
+        anchors: # Not used (directly) by f00bar; used here to avoid duplication
+          - string: &i3_common {margin: 5, on-click: "swaymsg --quiet workspace {name}"}
+          - string: &default {<<: *i3_common, text: "{name}"}
+          - focused: &focused
+              deco: {stack: [background: {color: ffa0a04c}, <<: *std_underline]}
+          - invisible: &invisible {foreground: 000000cc}
+          - urgent: &urgent
+              foreground: 000000ff
+              deco: {stack: [background: {color: bc2b3fff}, <<: *std_underline]}
+        sort: ascending
+        content:
+          "":
+            map:
+              tag: state
+              values:
+                focused:   {string: {<<: [*default, *focused]}}
+                unfocused: {string: {<<: *default}}
+                invisible: {string: {<<: [*default, *invisible]}}
+                urgent:    {string: {<<: [*default, *urgent]}}
+          current:
+            map:
+              left-margin: 7
+              tag: application
+              values:
+                "": {string: {text: "{title}"}}
+              default:
+                list:
+                  spacing: 0
+                  items:
+                    - string: {text: "{application}", max: 15, foreground: ffa0a0ff}
+                    - string: {text: ": "}
+                    - string: {text: "{title}", max: 150}
+
+  right:
+    - network:
+        name: wlp1s0
+        content:
+          map:
+            tag: state
+            default:
+                - {string: {text: , font: *awesome, foreground: ffffff66}}
+                - {string: {text: "{ipv4}"}}
+            values:
+              down: {string: {text: , font: *awesome, foreground: ff0000ff}}
+              up:
+                map:
+                  tag: ipv4
+                  default:
+                      - {string: {text: , font: *awesome}}
+                      - {string: {text: "{ipv4}"}}
+                  values:
+                    "":
+                        - {string: {text: , font: *awesome, foreground: ffffff66}}
+                        - {string: {text: "{ipv4}"}}
+    - backlight:
+        name: amdgpu_bl0
+        content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]
+    - battery:
+        name: BAT1
+        poll-interval: 60
+        content:
+          map:
+            tag: state
+            values:
+              discharging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: , foreground: ff0000ff, font: *awesome}
+                      - string: {text: , foreground: ffa600ff, font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , foreground: 00ff00ff, font: *awesome}
+                - string: {text: "{capacity}% {estimate}"}
+              charging:
+                - string: {text: , foreground: 00ff00ff, font: *awesome}
+                - string: {text: "{capacity}% {estimate}"}
+              full:
+                - string: {text: , foreground: 00ff00ff, font: *awesome}
+                - string: {text: "{capacity}% full"}
+    - clock:
+        time-format: "%H:%M"
+        content:
+          - string: {text: "{date}", right-margin: 5}
+          - string: {text: "{time}", right-margin: 5}

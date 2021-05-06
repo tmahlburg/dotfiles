@@ -1,0 +1,267 @@
+##  @@@  @@@@@@               @@@@@@@@   @@@@@@   @@@@@@@    @@@@@@   ##
+##  @@@  @@@@@@@             @@@@@@@@@  @@@@@@@@  @@@@@@@@  @@@@@@@   ##
+##  @@!      @@@             !@@        @@!  @@@  @@!  @@@  !@@       ##
+##  !@!      @!@             !@!        !@!  @!@  !@!  @!@  !@!       ##
+##  !!@  @!@!!@   @!@!@!@!@  !@! @!@!@  @!@!@!@!  @!@@!@!   !!@@!!    ##
+##  !!!  !!@!@!   !!!@!@!!!  !!! !!@!!  !!!@!!!!  !!@!!!     !!@!!!   ##
+##  !!:      !!:             :!!   !!:  !!:  !!!  !!:            !:!  ##
+##  :!:      :!:             :!:   !::  :!:  !:!  :!:           !:!   ##
+##   ::  :: ::::              ::: ::::  ::   :::   ::       :::: ::   ##
+##  :     : : :               :: :: :    :   : :   :        :: : :    ##
+
+# SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
+set $mod Mod4
+
+# SET WORKSPACE NAMES
+set $wb01  "1"
+set $wb02  "2"
+set $wb03  "3"
+set $wb04  "4"
+set $wb05  "5"
+set $wb06  "6"
+set $wb07  "7"
+set $wb08  "8"
+set $wb09  "9"
+set $wb10 "10"
+
+# SET TOOLS #
+set $term alacritty
+set $fm spacefm
+
+# FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
+#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+font monospace
+
+# SET KEY BINDINGS # ---------------------------------------------------------------------
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# run the file-manager
+bindsym $mod+y exec $fm
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start bemenu
+bindsym $mod+d exec bemenu-run -p run: -l 5
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+odiaeresis move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace $wb01
+bindsym $mod+2 workspace $wb02
+bindsym $mod+3 workspace $wb03
+bindsym $mod+4 workspace $wb04
+bindsym $mod+5 workspace $wb05
+bindsym $mod+6 workspace $wb06
+bindsym $mod+7 workspace $wb07
+bindsym $mod+8 workspace $wb08
+bindsym $mod+9 workspace $wb09
+bindsym $mod+0 workspace $wb10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $wb01
+bindsym $mod+Shift+2 move container to workspace $wb02
+bindsym $mod+Shift+3 move container to workspace $wb03
+bindsym $mod+Shift+4 move container to workspace $wb04
+bindsym $mod+Shift+5 move container to workspace $wb05
+bindsym $mod+Shift+6 move container to workspace $wb06
+bindsym $mod+Shift+7 move container to workspace $wb07
+bindsym $mod+Shift+8 move container to workspace $wb08
+bindsym $mod+Shift+9 move container to workspace $wb09
+bindsym $mod+Shift+0 move container to workspace $wb10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "swaynagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'sway-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the windows width.
+        # Pressing right will grow the windows width.
+        # Pressing up will shrink the windows height.
+        # Pressing down will grow the windows height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym odiaeresis resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# screenshots
+bindsym $mod+p exec grim ~/img/$(date '+%Y%m%d-%H%M%S').png
+
+# go to focused windows
+bindsym $mod+x [urgent=latest] focus
+
+# ALSA audio control
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -u -i 5 > /dev/null"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -u -d 5 > /dev/null"
+bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null"
+
+bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl set +2% > /dev/null"
+bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl set 2%- > /dev/null"
+# input configuration
+input * {
+    xkb_layout "de(nodeadkeys)"
+    # touchpad
+    drag enabled
+    tap enabled
+    middle_emulation enabled
+}
+
+input 1:1:AT_Translated_Set_2_keyboard xkb_model "pc104"
+
+output * bg /home/tillm/img/wp/a8ooenc6xnt01.jpg fill
+
+seat * hide_cursor 15000
+
+
+# ----------------------------------------------------------------------------------------
+
+# PROGRAM SPECIFIC SETTINGS #
+assign [class="Thunderbird"] $wb04
+assign [class="(?i)vivaldi-stable"] $wb01
+assign [class="(?i)vivaldi"] $wb01
+assign [class="(?i)mpv"] $wb03
+assign [class="(?i)deadbeef"] $wb06
+assign [class="(?i)steam"] $wb05
+
+# GAPS #
+# remove window decoration
+default_border pixel 3
+
+# much gaps
+gaps inner 13
+gaps outer 0
+
+# such intelligence
+#smart_gaps on
+#smart_borders no_gaps
+
+# wow
+
+# make a nice looking terminal gap for workspace 10
+workspace $wb10 gaps inner 50
+workspace $wb10 gaps outer 20
+
+# AUTOSTART #
+
+# tray
+#exec stalonetray
+
+# bar
+exec --no-startup-id yambar &
+
+# screen filter
+exec --no-startup-id gammastep -l 51:12 &
+
+# screen lock
+exec --no-startup-id swayidle -w before-sleep lock.sh
+
+# notifications
+#exec_always --no-startup-id dunst &
+
+# THEMING #
+set $bg #ffffff
+set $black #ebebeb
+set $br_black #cdcdcd
+set $white #878787
+set $fg #474747
+set $br_white #282828
+
+set $red #d6000c
+set $green #1d9700
+set $yellow #c49700
+set $blue #0064e4
+set $magenta #dd0f9d
+set $cyan #00ad9c
+set $orange #d04a00
+set $violet #7f51d6
+
+set $br_red #bf0000
+set $br_green #008400
+set $br_yellow #af8500
+set $br_blue #0054cf
+set $br_magenta #c7008b
+set $br_cyan #009a8a
+set $br_orange #ba3700
+set $br_violet #6b40c3
+
+# clientclass border backgr. text indicator
+#client.focused $green $green $black $blue
+client.focused $black $black $white $green
+client.focused_inactive $br_black $br_black $white $br_green
+client.unfocused $fg $fg $black $red
+client.urgent $br_red $br_red $white $yellow

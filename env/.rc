@@ -1,0 +1,112 @@
+#! /bin/sh
+
+# common functions for all shells used
+
+# USEFUL FUNCTIONS #
+extract () {
+    if [ -f "$1" ] ; then
+    case "$1" in
+        *.tar.bz2)   tar xvjf "$1"        ;;
+        *.tar.gz)    tar xvzf "$1"        ;;
+        *.tar.xz)    tar xvJf "$1"        ;;
+        *.bz2)       bunzip2 "$1"         ;;
+        *.rar)       unrar e "$1"         ;;
+        *.gz)        pigz -d "$1"         ;;
+        #*.gz)        gunzip "$1"          ;;
+        *.tar)       tar xvf "$1"         ;;
+        *.tbz2)      tar xvjf "$1"        ;;
+        *.tgz)       tar xvzf "$1"        ;;
+        *.txz)       tar xvJf "$1"        ;;
+        *.zip)       unzip "$1"           ;;
+        *.Z)         uncompress "$1"      ;;
+        *.7z)        7z x "$1"            ;;
+        *.xz)        xz -d -T 0 "$1"      ;;
+        *)           echo "don't know how to extract '$1'..." ;;
+    esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+mkcd () {
+	mkdir "$1"
+	cd "$1" || return
+}
+
+mdv () {
+	markdown "$1" | lynx -stdin -dump | less
+}
+
+mkalias () {
+	echo alias "$1"=\'"$2"\'
+}
+
+PRJ_DIR=$HOME/prj_dir
+# Usage: prj <project name>
+# project directory set via PRJ_DIR env variable
+# File format: <project name> </path/to/project>
+# TODO: optional command to run on changing into the
+#       project directory
+prj () {
+	local prj
+	prj="$1"
+	if [ "$prj" = ls ] ; then
+		cat "$PRJ_DIR"
+	else
+		local prj_loc
+		prj_loc=$(grep "$prj" "$PRJ_DIR" | cut -d ' ' -f 2)
+		eval "prj_loc=$prj_loc"
+
+		cd "$prj_loc" || echo "ERROR: $prj_loc does not exist!"
+	fi
+}
+
+toggle_bat_conservation () {
+	local switch
+	switch="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+	local current
+	current=$(cat "$switch")
+
+	if [ "$current" = "0" ] ; then
+		echo "1" | sudo tee "$switch"
+	elif [ "$current" = "1" ] ; then
+		echo "0" | sudo tee "$switch"
+	fi
+}
+
+# ALIASES #
+alias :q='exit'
+alias :Q='exit'
+
+alias ls='ls -F'
+
+alias mkdir='mkdir -p'
+
+# WORKS ONLY ON PACMAN-BASED DISTROS #
+alias rms-index='echo -n "Your Stallman Freedom index is " && echo "scale=2;" $( pacman -Qi | grep -e "^Lizenzen" | grep -cE "Artistic-2.0|PerlArtistic|Apache|Boost|GPL|BSD|MIT|WTFPL|MPL|Python|RUBY|W3C|ZLIB|ZPL|ISC" ) \* 100 / $( pacman -Qi | grep -c "Name" ) | bc -li || echo "You are probably not using a pacman based distribution."'
+
+alias git-history="git log --oneline --abbrev-commit --all --graph --decorate --color"
+
+alias xres2col="xrdb -query | sed -n 's/.*color\([0-9]\)/\\1/p' | sort -nu | cut -f2 | hex2col"
+
+alias tb='$EDITOR $HOME/doc/tagebuch/$(date --rfc-3339=date).md'
+
+alias yt2mp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --'
+
+alias synhi='source-highlight -f esc'
+
+alias vivadox="source /opt/Xilinx/Vivado/2020.1//settings64.sh && vivado"
+
+alias weather='curl -4 wttr.in/Leipzig'
+
+alias h='history | grep'
+
+alias hikari="source $HOME/.hikari-env && hikari -a hikari-autostart &> hikari.log"
+
+alias diff='diff --color=auto'
+
+alias ip='ip -color=auto'
+
+alias grep='grep --color=auto'
+
+alias screenshare='/usr/libexec/xdg-desktop-portal -r && /usr/libexec/xdg-desktop-portal-wlr'
