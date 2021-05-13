@@ -169,6 +169,17 @@ plug "andreyorst/smarttab.kak" %{
 
 #plug "kak-lsp/kak-lsp" do %{
 #    cargo install --locked --force --path .
+#} # Installed via distribution package management
+eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with plug.kak.
+hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
+    lsp-enable-window
+    lsp-auto-hover-enable
+    # format buffer on write
+    hook window BufWritePre .* lsp-formatting-sync
+    set global lsp_diagnostic_line_error_sign '║'
+    set global lsp_diagnostic_line_warning_sign '┊'
+    set global lsp_auto_highlight_references true
+}
 
 plug "jjk96/kakoune-rainbow"
 
