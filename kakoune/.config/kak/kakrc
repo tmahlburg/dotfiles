@@ -17,7 +17,6 @@ set-face global MatchingChar white,black+b
 
 # tabs as 4 chars
 set-option global tabstop 4
-#set-option global softtabstop 4
 
 # enable "soft" line wrap
 addhl global/ wrap
@@ -53,19 +52,19 @@ add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 # create shellscripting environment
 hook global BufSetOption filetype=sh %{
     set buffer lintcmd "shellcheck -f gcc"
-	hook buffer BufWritePost .* %{ lint }
-	hook buffer InsertEnd .* %{ lint }
-	hook buffer NormalIdle .* %{ lint }
-	#set-option -add buffer auto_pairs if fi case esac
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
+    #set-option -add buffer auto_pairs if fi case esac
 }
 
 # create python development environment
 hook global BufSetOption filetype=python %{
     set buffer formatcmd 'autopep8 - '
     set buffer lintcmd 'flake8 --ignore=W191 --format="%(path)s:%(row)d:%(col)d: error: %(text)s"'
-	hook buffer BufWritePost .* %{ lint }
-	hook buffer InsertEnd .* %{ lint }
-	hook buffer NormalIdle .* %{ lint }
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
 }
 hook global WinSetOption filetype=python %{
     jedi-enable-autocomplete
@@ -79,22 +78,20 @@ hook global BufSetOption filetype=c %{
     set buffer clang_options '-std=c11 -Wall -Wextra -pedantic'
     alias buffer lint clang-parse
     alias buffer lint-next clang-diagnostics-next
-	hook buffer BufWritePost .* %{ lint }
-	hook buffer InsertEnd .* %{ lint }
-	hook buffer NormalIdle .* %{ lint }
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
 }
 
 # set up markdown environment
 hook global BufSetOption filetype=markdown %{
-    set-option -add buffer auto_pairs _ _ * * ` `
     # set word wrap
     add-highlighter buffer/wordwrap wrap -word
 }
 
 # set up html environment
-hook global BufSetOption filetype=html %{
-    set-option -add buffer auto-pairs < >
-}
+#hook global BufSetOption filetype=html %{
+#}
 
 # set up js environment
 hook global BufSetOption filetype=javascript %{
@@ -106,14 +103,17 @@ hook global BufSetOption filetype=verilog %{
     #set-option -add buffer auto-pairs module endmodule begin end task endtask
     # see the file in my ~/bin
     set-option matching_pairs -add buffer begin end
-	set buffer lintcmd 'verilog_lint'
-	lint
-	hook buffer BufWritePost .* %{ lint }
-	hook buffer InsertEnd .* %{ lint }
-	hook buffer NormalIdle .* %{ lint }
+    set buffer lintcmd 'verilog_lint'
+    lint
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
 }
 
 # set up latex environment
+hook global BufCreate .*\.tex %{
+    set-option buffer filetype latex
+}
 hook global BufCreate .*\.latex %{
     set-option buffer filetype latex
 }
@@ -134,11 +134,11 @@ hook global BufSetOption filetype=latex %{
 
 # set up go environment
 hook global BufSetOption filetype=go %{
-	set-option buffer formatcmd 'gofmt'
-	set-option buffer makecmd 'go build'
-	hook buffer BufWritePost .* %{ format }
-	#hook buffer InsertEnd .* %{ lint }
-	#hook buffer NormalIdle .* %{ lint }
+    set-option buffer formatcmd 'gofmt'
+    set-option buffer makecmd 'go build'
+    hook buffer BufWritePost .* %{ format }
+    #hook buffer InsertEnd .* %{ lint }
+    #hook buffer NormalIdle .* %{ lint }
 }
 
 ###########
@@ -149,35 +149,15 @@ hook global BufSetOption filetype=go %{
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
 plug "occivink/kakoune-expand"
-#plug "occivink/kakoune-snippets" config %{
-#    set-option -add global snippets_directories "%sh{echo $HOME}/etc/kakoune/.config/kak/plugins/kakoune-snippet-collection/snippets"
-#    set-option global snippets_auto_expand false
-#}
-
-#plug "andreyorst/kakoune-snippet-collection"
 
 plug "delapouite/kakoune-mirror" %{
-	# Suggested mapping: use ' to get into mirror mode
-	map global normal "'" ': enter-user-mode -lock mirror<ret>'
+    # Suggested mapping: use ' to get into mirror mode
+    map global normal "'" ': enter-user-mode -lock mirror<ret>'
 }
-
-#plug "alexherbo2/auto-pairs.kak" %{
-#	set-option global auto_pairs ( ) { } [ ]
-#	map global user s -docstring 'Surround' ':<space>auto-pairs-surround<ret>'
-#	map global user S -docstring 'Surround++' ':<space>auto-pairs-surround _ _ * *<ret>'
-#}
-#hook global WinCreate .* %{
-#      auto-pairs-enable
-#}
 
 # clipboard integration
 plug "lePerdu/kakboard" %{
-	hook global WinCreate .* %{ kakboard-enable }
-}
-
-plug "TeddyDD/kakoune-edit-or-dir" %{
-    unalias global e edit
-    alias global e edit-or-dir
+    hook global WinCreate .* %{ kakboard-enable }
 }
 
 plug "TeddyDD/kakoune-selenized" domain "GitHub.com" theme
@@ -188,32 +168,8 @@ plug "andreyorst/smarttab.kak" %{
 }
 
 #plug "kak-lsp/kak-lsp" do %{
-#    cargo build --release --locked
 #    cargo install --locked --force --path .
-#} config %{
-#    # uncomment to enable debugging
-#    # eval %sh{echo ${kak_opt_lsp_cmd} >> /tmp/kak-lsp.log}
-#    # set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
-#
-#    set global lsp_diagnostic_line_error_sign '║'
-#    set global lsp_diagnostic_line_warning_sign '┊'
-#
-#    define-command ne -docstring 'go to next error/warning from lsp' %{ lsp-find-error --include-warnings }
-#    define-command pe -docstring 'go to previous error/warning from lsp' %{ lsp-find-error --previous --include-warnings }
-#    define-command ee -docstring 'go to current error/warning from lsp' %{ lsp-find-error --include-warnings; lsp-find-error --previous --include-warnings }
-#
-#    define-command lsp-restart -docstring 'restart lsp server' %{ lsp-stop; lsp-start }
-#    hook global WinSetOption filetype=(c|go|python) %{
-#        set-option window lsp_auto_highlight_references true
-#        set-option window lsp_hover_anchor false
-#        lsp-auto-hover-enable
-#        echo -debug "Enabling LSP for filtetype %opt{filetype}"
-#        lsp-enable-window
-#    }
-#
-#    hook global KakEnd .* lsp-exit
-#}
 
 plug "jjk96/kakoune-rainbow"
 
-plug "asyncial/kakoune-verilog"
+plug "tmahlburg/kakoune-verilog"
