@@ -184,3 +184,10 @@ hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
 plug "jjk96/kakoune-rainbow"
 
 plug "tmahlburg/kakoune-verilog"
+
+plug "greenfork/active-window.kak"
+
+# called via woc
+plug "ftonneau/wordcount.kak"
+
+plug 'casonadams/insert-indicator'
