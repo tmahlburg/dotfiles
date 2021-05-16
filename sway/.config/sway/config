@@ -217,7 +217,7 @@ workspace $wb10 gaps outer 20
 #exec stalonetray
 
 # bar
-exec --no-startup-id yambar &
+exec --no-startup-id yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &
 
 # screen filter
 exec --no-startup-id gammastep -l 51:12 &
