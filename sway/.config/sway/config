@@ -191,11 +191,6 @@ seat * hide_cursor 15000
 # ----------------------------------------------------------------------------------------
 
 # PROGRAM SPECIFIC SETTINGS #
-assign [class="Thunderbird"] $wb04
-assign [class="(?i)vivaldi-stable"] $wb01
-assign [class="(?i)vivaldi"] $wb01
-assign [class="(?i)mpv"] $wb03
-assign [class="(?i)deadbeef"] $wb06
 assign [class="(?i)steam"] $wb05
 
 # GAPS #
@@ -265,7 +260,7 @@ set $br_violet #6b40c3
 
 # clientclass border backgr. text indicator
 #client.focused $green $green $black $blue
-client.focused $black $black $white $green
+client.focused $bg $bg $white $green
 client.focused_inactive $br_black $br_black $white $br_green
-client.unfocused $fg $fg $black $red
-client.urgent $br_red $br_red $white $yellow
+client.unfocused $fg $fg $black $green
+client.urgent $br_red $br_red $white $green
