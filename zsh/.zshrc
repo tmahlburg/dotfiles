@@ -13,7 +13,11 @@
 #autoload -Uz promptinit
 #promptinit
 
-PROMPT='%~ %# '
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	PROMPT='[ssh:%m] %~ %# '
+else
+	PROMPT='%~ %# '
+fi
 RPROMPT='%B%F{red}%(?..%?)%f%b %T'
 
 # Lines configured by zsh-newuser-install             ##
