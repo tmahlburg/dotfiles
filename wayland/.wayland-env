@@ -1,0 +1,31 @@
+#!/bin/sh
+# set current desktop
+export XDG_CURRENT_DESKTOP=sway
+
+# wayland session
+export XDG_SESSION_TYPE=wayland
+export MOZ_ENABLE_WAYLAND=1
+export ELM_DISPLAY=wl
+export SDL_VIDEODRIVER=wayland
+export ECORE_EVAS_ENGINE=wayland_egl
+export ELM_ENGINE=wayland_egl
+export BEMENU_BACKEND=wayland
+
+# set XDG_RUNTIME_DIR according to htttps://wiki.gentoo.org/wiki/Sway
+if test -z "$XDG_RUNTIME_DIR"; then
+	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+	if ! test -d "$XDG_RUNTIME_DIR"; then
+		mkdir "$XDG_RUNTIME_DIR"
+		chmod 0700 "$XDG_RUNTIME_DIR"
+	fi
+fi
+
+# use x on qt5 as long as problems persist
+export QT_QPA_PLATFORM=xcb
+
+# hardware video acceleration
+export LIBVA_DRIVER_NAME=radeonsi
+export VDPAU_DRIVER=radeonsi
+
+# setup qt styling
+export QT_QPA_PLATFORMTHEME=qt5ct
