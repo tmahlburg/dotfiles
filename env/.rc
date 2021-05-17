@@ -87,15 +87,13 @@ alias rms-index='echo -n "Your Stallman Freedom index is " && echo "scale=2;" $(
 
 alias git-history="git log --oneline --abbrev-commit --all --graph --decorate --color"
 
-alias xres2col="xrdb -query | sed -n 's/.*color\([0-9]\)/\\1/p' | sort -nu | cut -f2 | hex2col"
-
-alias tb='$EDITOR $HOME/doc/tagebuch/$(date --rfc-3339=date).md'
+alias tb='$EDITOR $XDG_DOCUMENTS_HOME/tagebuch/$(date --rfc-3339=date).md'
 
 alias yt2mp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --'
 
 alias synhi='source-highlight -f esc'
 
-alias vivadox="source /opt/Xilinx/Vivado/2020.1//settings64.sh && vivado"
+alias vivadox="source /opt/Xilinx/Vivado/2020.1/settings64.sh && vivado"
 
 alias weather='curl -4 wttr.in/Leipzig'
 
