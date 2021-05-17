@@ -23,5 +23,5 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
 	ssh-agent > "/tmp/ssh-agent-$USER.env"
 fi
 if test -z "$SSH_AUTH_SOCK"; then
-	source "/tmp/ssh-agent-$USER.env" >/dev/null
+	. "/tmp/ssh-agent-$USER.env" >/dev/null
 fi
