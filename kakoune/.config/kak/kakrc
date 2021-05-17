@@ -94,9 +94,8 @@ hook global BufSetOption filetype=markdown %{
 #}
 
 # set up js environment
-hook global BufSetOption filetype=javascript %{
-    set buffer formatcmd 'js-beautify'
-}
+#hook global BufSetOption filetype=javascript %{
+#}
 
 # set up verilog development environment
 hook global BufSetOption filetype=verilog %{
