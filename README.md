@@ -9,28 +9,40 @@ The dotfiles are configuring two different systems and depend on a list of softw
 ### rakete
 
 **type**: desktop pc
+
 **screens**:
+
 * DVI-D-1: 1920x1080
 * DP-1: 1366x768
+
 **cpu**: AMD Ryzen 5 1600 6C12T @ 3.2-3.6 GHz
+
 **gpu**: AMD Radeon RX 480 4GiB
+
 **ram**: 16GiB DDR4-3200
+
 **disk**:
+
 * 240G SSD - Windows C: (NTFS) | /boot (FAT32)
 * 120G SSD - [Void Linux](https://voidlinux.org) / (XFS)
 * 150G HDD - /home (ext4) | 32G SWAP
 * 500G HDD - D: (NTFS)
 * BD-RW
 
+
 ### maschine
 
 **type**: Lenovo Yoga Slim 7
+
 **screen**: 1920x1080
+
 **cpu**: AMD Ryzen 7 4800U 8C16T @ 1.8-4.2 GHz
+
 **gpu**: AMD Radeon RX Vega 8
+
 **ram**: 16GiB LPDDR4X-4266
-**disk**:
-* 480G NVMe - 1G /boot | 64G [Void Linux](https://voidlinux.org) / | 192G /home | 220G Windows C:
+
+**disk**: 480G NVMe - 1G /boot | 64G [Void Linux](https://voidlinux.org) / | 192G /home | 220G Windows C:
 
 The dotfiles have the following dependencies:
 
