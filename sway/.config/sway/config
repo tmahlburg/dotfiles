@@ -187,7 +187,7 @@ input * {
 
 input 1:1:AT_Translated_Set_2_keyboard xkb_model "pc104"
 
-output * bg /home/tillm/img/wp/a8ooenc6xnt01.jpg fill
+output * bg /home/tillm/share/onedrive/Wallpaper/Cyberpunk/a8ooenc6xnt01.jpg fill
 
 seat * hide_cursor 15000
 
