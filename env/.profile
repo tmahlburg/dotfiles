@@ -18,19 +18,11 @@ fi
 # run onedrive
 #onedrive -m > onedrive.log &
 
-# autostart sway
-if [ "$(tty)" = "/dev/tty1" ]; then
-	if [ -f ".$HOME/.wayland-env" ] ; then
-		source $HOME/.wayland-env
-		dbus-run-session sway &> sway.log
-	fi
-fi
-
 # autostart ssh-agent
 # source: https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+	ssh-agent > "/tmp/ssh-agent-$USER.env"
 fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+if [ -z "$SSH_AUTH_SOCK" ]; then
+	source "/tmp/ssh-agent-$USER.env" >/dev/null
 fi
