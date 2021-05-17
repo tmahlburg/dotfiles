@@ -11,7 +11,7 @@ The dotfiles are configuring two different systems and depend on a list of softw
 **type**: desktop pc\
 **screens**:
 * DVI-D-1: 1920x1080
-* DP-1: 1366x768
+* DP-1: 1366x768\
 **cpu**: AMD Ryzen 5 1600 6C12T @ 3.2-3.6 GHz\
 **gpu**: AMD Radeon RX 480 4GiB\
 **ram**: 16GiB DDR4-3200\
