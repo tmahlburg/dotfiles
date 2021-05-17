@@ -217,9 +217,6 @@ workspace $wb10 gaps outer 20
 
 # AUTOSTART #
 
-# tray
-#exec stalonetray
-
 # bar
 exec --no-startup-id yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &
 
@@ -238,7 +235,7 @@ exec --no-startup-id pipewire-pulse &
 
 # THEMING #
 set $bg #ffffff
-set $black #ebebeb
+set $black #000000
 set $br_black #cdcdcd
 set $white #878787
 set $fg #474747
@@ -264,7 +261,7 @@ set $br_violet #6b40c3
 
 # clientclass border backgr. text indicator
 #client.focused $green $green $black $blue
-client.focused $bg $bg $white $green
-client.focused_inactive $br_black $br_black $white $br_green
-client.unfocused $fg $fg $black $green
-client.urgent $br_red $br_red $white $green
+client.focused $green $green $black $br_violet
+client.focused_inactive $black $black $bg $br_violet
+client.unfocused $black $black $bg $br_violet
+client.urgent $br_red $br_red $white $br_cyan
