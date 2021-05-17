@@ -133,6 +133,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "swaynagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'sway-msg exit'"
 
+# move workspace around monitors
+bindsym $mod+comma move workspace to output right
+bindsym $mod+period move workspace to output left
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
