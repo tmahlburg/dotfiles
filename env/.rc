@@ -34,7 +34,7 @@ mkcd () {
 }
 
 mdv () {
-	markdown "$1" | lynx -stdin -dump | less
+	markdown "$1" | elinks -dump | less
 }
 
 mkalias () {
