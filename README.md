@@ -30,7 +30,7 @@ The dotfiles are configuring two different systems and depend on a list of softw
 **cpu**: AMD Ryzen 7 4800U 8C16T @ 1.8-4.2 GHz\
 **gpu**: AMD Radeon RX Vega 8\
 **ram**: 16GiB LPDDR4X-4266\
-**disk**: 480G NVMe - 1G /boot | 64G [Void Linux](https://voidlinux.org) / | 192G /home | 220G Windows C:
+**disk**: 480G NVMe - 1G /boot (FAT32) | 64G [Void Linux](https://voidlinux.org) (XFS) / | 192G /home (ext4) | 220G Windows C: (NTFS)
 
 The dotfiles have the following dependencies:
 
