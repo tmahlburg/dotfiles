@@ -65,7 +65,10 @@ bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 # SYSINFO #
 #alsi
 
-source $HOME/.rc
+# source common configuration
+if [ -f "$HOME/.rc" ] ; then
+	source "$HOME/.rc"
+fi
 
 #alias vivaldi-stable='vivaldi'
 

@@ -14,10 +14,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# source common environment #
+# source common environment
 if [ -f "$HOME/.env" ]; then
 	# shellcheck source=/dev/null
-	source "$HOME"/.env
+	source "$HOME/.env"
+fi
+
+# source common configuration
+if [ -f "$HOME/.rc" ]; then
+	source "$HOME/.rc"
 fi
 
 # BASH PROMPT #
