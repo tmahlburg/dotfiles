@@ -20,8 +20,10 @@ fi
 
 # autostart sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-	source $HOME/.wayland-env
-	dbus-run-session sway &> sway.log
+	if [ -f ".$HOME/.wayland-env" ] ; then
+		source $HOME/.wayland-env
+		dbus-run-session sway &> sway.log
+	fi
 fi
 
 # autostart ssh-agent
