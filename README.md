@@ -55,7 +55,6 @@ The dotfiles have the following dependencies:
 * [7z](http://p7zip.sourceforge.net) - function
 * [xz](https://tukaani.org/xz/format.html) - function
 * [markdown](http://www.pell.portland.or.us/~orc/Code/discount/) - function
-* [elinks](http://elinks.or.cz) - function
 * [pacman](https://archlinux.org/pacman/) - alias
 * [git](https://git-scm.com) - alias
 * [youtube-dl](https://youtube-dl.org) - alias
@@ -64,6 +63,8 @@ The dotfiles have the following dependencies:
 * [curl](https://curl.se) - alias
 * [xdg-dekstop-portal](https://github.com/flatpak/xdg-desktop-portal) - alias
 * [xdg-desktop-portal-wlr](https://github.com/emersion/xdg-desktop-portal-wlr)
+* [elinks](http://elinks.or.cz) - as $TUI_BROWSER
+* [less](http://www.greenwoodsoftware.com/less/) - as $PAGER
 * [kakoune](https://kakoune.org) - as $EDITOR
 * [go](https://golang.org) - set $GOPATH
 * references the ```wayland``` module in this repository

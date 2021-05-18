@@ -34,14 +34,14 @@ mkcd () {
 }
 
 mdv () {
-	markdown "$1" | elinks -dump | less
+	markdown "$1" | "$TUI_BROWSER" -dump | less
 }
 
 mkalias () {
 	echo alias "$1"=\'"$2"\'
 }
 
-PRJ_DIR=$HOME/prj_dir
+PRJ_DIR="$HOME/prj_dir"
 # Usage: prj <project name>
 # project directory set via PRJ_DIR env variable
 # File format: <project name> </path/to/project>
@@ -98,8 +98,6 @@ alias vivadox="source /opt/Xilinx/Vivado/2020.1/settings64.sh && vivado"
 alias weather='curl -4 wttr.in/Leipzig'
 
 alias h='history | grep'
-
-alias hikari="source $HOME/.hikari-env && hikari -a hikari-autostart &> hikari.log"
 
 alias diff='diff --color=auto'
 
