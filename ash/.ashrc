@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+
+# source common environment
+if [ -f "$HOME/.env" ]; then
+	# shellcheck source=/dev/null
+	. "$HOME/.env"
+fi
+
+# source common configuration
+if [ -f "$HOME/.rc" ]; then
+	. "$HOME/.rc"
+fi
+
+# prompt
+# set colors
+NORMAL="\[\e[0m\]"
+RED="\[\e[1;31m\]"
+# check if running in ssh
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	if [ "$USER" = root ] ; then
+		PS1="[ssh: $RED\u$NORMAL@\h] \W $ "
+	else
+		PS1="[ssh: \u@\h] \W $ "
+	fi
+else
+	if [ "$USER" = root ] ; then
+		PS1="$RED\u$NORMAL in \W $ "
+	else
+		PS1="\W $ "
+	fi
+fi

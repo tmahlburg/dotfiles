@@ -2,20 +2,32 @@
 #
 # This file contains all commands that should be run by all login shells
 
-# set XDG_CONFIG_HOME
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# set XDG_RUNTIME_DIR according to htttps://wiki.gentoo.org/wiki/Sway
-if test -z "$XDG_RUNTIME_DIR"; then
-	export "XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir"
-	if ! test -d "$XDG_RUNTIME_DIR"; then
-		mkdir "$XDG_RUNTIME_DIR"
-		chmod 0700 "$XDG_RUNTIME_DIR"
-	fi
+# Check if the shell running is ash, and if so, set startup file
+# in $ENV. Works with busybox ash
+if [ "$0" = "-ash" ] ; then
+     export ENV="$HOME/.ashrc"
 fi
 
-# run onedrive
-#onedrive -m > onedrive.log &
+# check hostname -> graphical (rakete, maschine)
+if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
+	# set XDG_CONFIG_HOME
+	export XDG_CONFIG_HOME="$HOME/.config"
+
+	# set XDG_RUNTIME_DIR according to htttps://wiki.gentoo.org/wiki/Sway
+	if test -z "$XDG_RUNTIME_DIR"; then
+		export "XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir"
+		if ! test -d "$XDG_RUNTIME_DIR"; then
+			mkdir "$XDG_RUNTIME_DIR"
+			chmod 0700 "$XDG_RUNTIME_DIR"
+		fi
+	fi
+
+	# run onedrive
+	#onedrive -m > onedrive.log &
+# cli only -> generator
+elif [ "$(hostname)" = "generator" ] ; then
+	"$HOME/bin/alpine-sysinfo"
+fi
 
 # autostart ssh-agent
 # source: https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent

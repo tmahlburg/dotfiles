@@ -4,7 +4,7 @@ Dotfiles managed via [stow](https://www.gnu.org/software/stow/), following [this
 
 ## setup
 
-The dotfiles are configuring two different systems and depend on a list of software. The systems are:
+The dotfiles are configuring three very different systems and depend on a list of software. The systems are:
 
 ### rakete
 
@@ -32,11 +32,26 @@ The dotfiles are configuring two different systems and depend on a list of softw
 **ram**: 16GiB LPDDR4X-4266\
 **disk**: 480G NVMe - 1G /boot (FAT32) | 64G [Void Linux](https://voidlinux.org) (XFS) / | 192G /home (ext4) | 220G Windows C: (NTFS)
 
-The dotfiles have the following dependencies:
+### generator
+
+**type**: Raspberry Pi 4\
+**screen**: none\
+**cpu**: ARM Cortex-A72 4C4T @ 1.5GHz\
+**gpu**: unused\
+**ram**: 2GiB\
+**disk**:
+* 15G microSD - [Alpine Linux](https://alpinelinux.org) (FAT32)
+* 2T HDD - data (NTFS)
+
+The different modules have the following dependencies:
 
 ### [alacritty](https://github.com/alacritty/alacritty)
 
 * [xdg-utils](https://www.freedesktop.org/wiki/Software/xdg-utils/)
+
+### [ash](https://busybox.net)
+
+* relies on the ```env``` module of this repository
 
 ### [bash](https://www.gnu.org/software/bash/)
 
@@ -44,6 +59,7 @@ The dotfiles have the following dependencies:
 
 ### env - shell independent configuration
 
+* [alpine-sysinfo](https://github.com/tmahlburg/bin/blob/main/alpine-sysinfo) - autostart
 * [sway](https://swaywm.org) - autostart
 * [ssh-agent](https://www.openssh.com) - autostart
 * [tar](https://www.gnu.org/software/tar/tar.html) - function
@@ -119,7 +135,7 @@ The dotfiles have the following dependencies:
 * [swayidle](https://github.com/swaywm/swayidle) - autostart
 * [pipewire](https://pipewire.org) - autostart
 * [pipewire-pulse](https://pipewire.org) - autostart
-* depends on the ```wayland``` module in this repository
+* references on the ```wayland``` module in this repository
 
 ### [wayland](https://wayland.freedesktop.org)
 
@@ -138,4 +154,4 @@ The dotfiles have the following dependencies:
 
 ### [zsh](https://www.zsh.org)
 
-* depends on the ```env``` module in this repository
+* relies on the ```env``` module in this repository
