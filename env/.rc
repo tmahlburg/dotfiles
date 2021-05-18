@@ -93,7 +93,7 @@ alias yt2mp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --'
 
 alias synhi='source-highlight -f esc'
 
-alias vivadox="source /opt/Xilinx/Vivado/2020.1/settings64.sh && vivado"
+alias vivadox="source /opt/Xilinx/Vivado/2020.3/settings64.sh && vivado"
 
 alias weather='curl -4 wttr.in/Leipzig'
 
