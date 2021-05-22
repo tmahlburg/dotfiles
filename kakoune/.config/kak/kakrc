@@ -50,6 +50,9 @@ add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 #######################
 
 # create shellscripting environment
+hook global BufCreate APKBUILD %{
+    set-option buffer filetype sh
+}
 hook global BufSetOption filetype=sh %{
     set buffer lintcmd "shellcheck -f gcc"
     hook buffer BufWritePost .* %{ lint }
