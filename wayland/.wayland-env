@@ -18,3 +18,6 @@ export VDPAU_DRIVER=radeonsi
 
 # setup qt styling
 export QT_QPA_PLATFORMTHEME=qt5ct
+
+# setup libreoffice to use qt5
+export SAL_USE_VCLPLUGIN=qt5
