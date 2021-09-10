@@ -171,8 +171,8 @@ bindsym $mod+p exec grim ~/img/$(date '+%Y%m%d-%H%M%S').png
 bindsym $mod+x [urgent=latest] focus
 
 # ALSA audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -u -i 5 > /dev/null"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -u -d 5 > /dev/null"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -u -i 5 > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(pamixer --get-volume)"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -u -d 5 > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(pamixer --get-volume)"
 bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null"
 
 bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl set +2% > /dev/null"
