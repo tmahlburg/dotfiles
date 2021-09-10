@@ -22,6 +22,11 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 		fi
 	fi
 
+	# run spotifyd, if available
+	if [ -f "/usr/bin/spotifyd" ] ; then
+		spotifyd
+	fi
+
 	# run onedrive
 	#onedrive -m > .log/onedrive.log &
 # cli only -> generator
