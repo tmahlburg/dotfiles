@@ -9,6 +9,7 @@
 ##   ::  :: ::::              ::: ::::  ::   :::   ::       :::: ::   ##
 ##  :     : : :               :: :: :    :   : :   :        :: : :    ##
 
+include window-rules
 # SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
 set $mod Mod4
 
