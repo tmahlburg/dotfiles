@@ -64,10 +64,10 @@ hook global BufSetOption filetype=sh %{
 # create python development environment
 hook global BufSetOption filetype=python %{
     set buffer formatcmd 'autopep8 - '
-    set buffer lintcmd 'flake8 --ignore=W191 --format="%(path)s:%(row)d:%(col)d: error: %(text)s"'
-    hook buffer BufWritePost .* %{ lint }
-    hook buffer InsertEnd .* %{ lint }
-    hook buffer NormalIdle .* %{ lint }
+    #set buffer lintcmd 'flake8 --ignore=W191 --format="%(path)s:%(row)d:%(col)d: error: %(text)s"'
+    #hook buffer BufWritePost .* %{ lint }
+    #hook buffer InsertEnd .* %{ lint }
+    #hook buffer NormalIdle .* %{ lint }
 }
 hook global WinSetOption filetype=python %{
     jedi-enable-autocomplete
@@ -167,7 +167,7 @@ plug "TeddyDD/kakoune-selenized" domain "GitHub.com" theme
 
 plug "andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh|html) noexpandtab
-    hook global WinSetOption filetype=python expandtab
+    hook global WinSetOption filetype=(python|java) expandtab
 }
 
 #plug "kak-lsp/kak-lsp" do %{
@@ -178,7 +178,7 @@ hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
     lsp-enable-window
     lsp-auto-hover-enable
     # format buffer on write
-    hook window BufWritePre .* lsp-formatting-sync
+    #hook window BufWritePre .* lsp-formatting-sync
     set global lsp_diagnostic_line_error_sign '║'
     set global lsp_diagnostic_line_warning_sign '┊'
     set global lsp_auto_highlight_references true
