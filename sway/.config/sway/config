@@ -10,6 +10,8 @@
 ##  :     : : :               :: :: :    :   : :   :        :: : :    ##
 
 include window-rules
+include autostart
+
 # SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
 set $mod Mod4
 
@@ -224,24 +226,6 @@ gaps outer 0
 # make a nice looking terminal gap for workspace 10
 workspace $wb10 gaps inner 50
 workspace $wb10 gaps outer 20
-
-# AUTOSTART #
-
-# bar
-exec --no-startup-id yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &
-
-# screen filter
-exec --no-startup-id gammastep -l 51:12 &
-
-# screen lock
-exec --no-startup-id swayidle -w before-sleep lock.sh
-
-# notifications
-exec --no-startup-id dunst &
-
-# audio
-exec --no-startup-id pipewire &
-exec --no-startup-id pipewire-pulse &
 
 # THEMING #
 set $bg #ffffff
