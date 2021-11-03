@@ -30,7 +30,7 @@ set $wb10 "10"
 
 # SET TOOLS #
 set $term alacritty
-set $fm spacefm
+set $fm pcmanfm-qt
 
 # FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
