@@ -11,6 +11,7 @@
 
 include window-rules
 include autostart
+include theme
 include input
 
 # SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
@@ -197,7 +198,7 @@ assign [class="(?i)steam"] $wb05
 default_border pixel 3
 
 # much gaps
-gaps inner 13
+gaps inner 10
 gaps outer 0
 
 # such intelligence
@@ -207,38 +208,5 @@ gaps outer 0
 # wow
 
 # make a nice looking terminal gap for workspace 10
-workspace $wb10 gaps inner 50
-workspace $wb10 gaps outer 20
-
-# THEMING #
-set $bg #ffffff
-set $black #000000
-set $br_black #cdcdcd
-set $white #878787
-set $fg #474747
-set $br_white #282828
-
-set $red #d6000c
-set $green #1d9700
-set $yellow #c49700
-set $blue #0064e4
-set $magenta #dd0f9d
-set $cyan #00ad9c
-set $orange #d04a00
-set $violet #7f51d6
-
-set $br_red #bf0000
-set $br_green #008400
-set $br_yellow #af8500
-set $br_blue #0054cf
-set $br_magenta #c7008b
-set $br_cyan #009a8a
-set $br_orange #ba3700
-set $br_violet #6b40c3
-
-# clientclass border backgr. text indicator
-#client.focused $green $green $black $blue
-client.focused $green $green $black $br_violet
-client.focused_inactive $black $black $bg $br_violet
-client.unfocused $black $black $bg $br_violet
-client.urgent $br_red $br_red $white $br_cyan
+workspace $wb10 gaps inner 200
+workspace $wb10 gaps outer 0
