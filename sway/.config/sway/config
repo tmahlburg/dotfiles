@@ -33,6 +33,7 @@ set $term alacritty
 set $fm pcmanfm-qt
 set $menu "bemenu-run -p run: -l 5 --fn 'Iosevka 12' --nb '$bg' --nf '$black' \
 --tb '$bg' --tf '$black' --fb '$bg' --ff '$black' --hb '$bg' --hf '$green'"
+set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
 # FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
@@ -170,7 +171,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # screenshots
-bindsym $mod+p exec grim ~/img/$(date '+%Y%m%d-%H%M%S').png
+bindsym $mod+p exec scrot
+bindsym $mod+Print exec scrot
 
 # go to focused windows
 bindsym $mod+x [urgent=latest] focus
