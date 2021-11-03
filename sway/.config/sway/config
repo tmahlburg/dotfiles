@@ -11,6 +11,7 @@
 
 include window-rules
 include autostart
+include input
 
 # SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
 set $mod Mod4
@@ -179,30 +180,8 @@ bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null"
 
 bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
 bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
-# input configuration
-input * {
-    xkb_layout "de(nodeadkeys)"
-    # touchpad
-    drag enabled
-    tap enabled
-    middle_emulation enabled
-}
 
-input 1:1:AT_Translated_Set_2_keyboard xkb_model "pc104"
-
-output * bg /home/tillm/share/onedrive/Wallpaper/Cyberpunk/a8ooenc6xnt01.jpg fill
-
-seat * hide_cursor 15000
-
-# cursor setup
-set $my_cursor Vanilla-DMZ
-set $my_cursor_size 24
-
-seat seat0 xcursor_theme $my_cursor $my_cursor_size
-exec_always {
-    gsettings set org.gnome.desktop.interface cursor-theme $my_cursor
-    gsettings set org.gnome.desktop.interface cursor-size $my_cursor_size
-}
+output * bg /home/tillm/img/XT206489.jpg fill
 
 # ----------------------------------------------------------------------------------------
 
