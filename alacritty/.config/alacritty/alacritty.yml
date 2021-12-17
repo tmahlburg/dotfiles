@@ -288,30 +288,96 @@ font:
   #   - Linear
   #animation: EaseOutExpo
 
-# Colors (Selenized white)
-colors:
-  primary:
-    background: '0xffffff'
-    foreground: '0x474747'
-  normal:
-    black:   '0xebebeb'
-    red:     '0xd6000c'
-    green:   '0x1d9700'
-    yellow:  '0xc49700'
-    blue:    '0x0064e4'
-    magenta: '0xdd0f9d'
-    cyan:    '0x00ad9c'
-    white:   '0x878787'
-  bright:
-    black:   '0xcdcdcd'
-    red:     '0xbf0000'
-    green:   '0x008400'
-    yellow:  '0xaf8500'
-    blue:    '0x0054cf'
-    magenta: '0xc7008b'
-    cyan:    '0x009a8a'
-    white:   '0x282828'
+## Colors (Selenized white)
+#colors:
+#  primary:
+#    background: '0xffffff'
+#    foreground: '0x474747'
+#  normal:
+#    black:   '0xebebeb'
+#    red:     '0xd6000c'
+#    green:   '0x1d9700'
+#    yellow:  '0xc49700'
+#    blue:    '0x0064e4'
+#    magenta: '0xdd0f9d'
+#    cyan:    '0x00ad9c'
+#    white:   '0x878787'
+#  bright:
+#    black:   '0xcdcdcd'
+#    red:     '0xbf0000'
+#    green:   '0x008400'
+#    yellow:  '0xaf8500'
+#    blue:    '0x0054cf'
+#    magenta: '0xc7008b'
+#    cyan:    '0x009a8a'
+#    white:   '0x282828'
 
+# Base16 Default Light - alacritty color config
+# Chris Kempson (http://chriskempson.com)
+colors:
+  # Default colors
+  primary:
+    background: '0xf8f8f8'
+    foreground: '0x383838'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xf8f8f8'
+    cursor: '0x383838'
+
+  # Normal colors
+  normal:
+    black:   '0xf8f8f8'
+    red:     '0xab4642'
+    green:   '0xa1b56c'
+    yellow:  '0xf7ca88'
+    blue:    '0x7cafc2'
+    magenta: '0xba8baf'
+    cyan:    '0x86c1b9'
+    white:   '0x383838'
+
+  # Bright colors
+  bright:
+    black:   '0xb8b8b8'
+    red:     '0xdc9656'
+    green:   '0xe8e8e8'
+    yellow:  '0xd8d8d8'
+    blue:    '0x585858'
+    magenta: '0x282828'
+    cyan:    '0xa16946'
+    white:   '0x181818'
+
+draw_bold_text_with_bright_colors: false
+## Colors (Gruvbox light)
+#colors:
+#  # Default colors
+#  primary:
+#    # hard contrast: background = '0xf9f5d7'
+#    background: '0xfbf1c7'
+#    # soft contrast: background = '0xf2e5bc'
+#    foreground: '0x3c3836'
+#
+#  # Normal colors
+#  normal:
+#    black:   '0xfbf1c7'
+#    red:     '0xcc241d'
+#    green:   '0x98971a'
+#    yellow:  '0xd79921'
+#    blue:    '0x458588'
+#    magenta: '0xb16286'
+#    cyan:    '0x689d6a'
+#    white:   '0x7c6f64'
+#
+#  # Bright colors
+#  bright:
+#    black:   '0x928374'
+#    red:     '0x9d0006'
+#    green:   '0x79740e'
+#    yellow:  '0xb57614'
+#    blue:    '0x076678'
+#    magenta: '0x8f3f71'
+#    cyan:    '0x427b58'
+#    white:   '0x3c3836'
   # Duration of the visual bell flash. A `duration` of `0` will disable the
   # visual bell animation.
   #duration: 0
