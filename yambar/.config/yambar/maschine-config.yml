@@ -41,7 +41,7 @@ bar:
           - invisible: &invisible {foreground: 000000cc}
           - urgent: &urgent
               foreground: 000000ff
-              deco: {stack: [background: {color: bc2b3fff}, <<: *std_underline]}
+              deco: {background: {color: bc2b3fff}}
         sort: ascending
         content:
           "":
