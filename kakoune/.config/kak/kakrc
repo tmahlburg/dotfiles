@@ -26,8 +26,8 @@ hook global WinCreate .* %{
     git show-diff
 }
 
-# setup colors
-colorscheme selenized-white
+# setup color
+colorscheme base16-default-light
 
 hook global BufWritePost .* %{
     git update-diff
@@ -164,6 +164,10 @@ plug "lePerdu/kakboard" %{
 }
 
 plug "TeddyDD/kakoune-selenized" domain "GitHub.com" theme
+
+plug "vbauerster/second-light" domain "GitHub.com" theme
+
+plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
 
 plug "andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh|html) noexpandtab
