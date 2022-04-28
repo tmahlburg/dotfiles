@@ -93,8 +93,9 @@ hook global BufSetOption filetype=markdown %{
 }
 
 # set up html environment
-#hook global BufSetOption filetype=html %{
-#}
+hook global BufSetOption filetype=html %{
+    set buffer formatcmd 'tidy5 -i -w 80 -utf8'
+}
 
 # set up js environment
 #hook global BufSetOption filetype=javascript %{
