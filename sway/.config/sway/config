@@ -9,14 +9,6 @@
 ##   ::  :: ::::              ::: ::::  ::   :::   ::       :::: ::   ##
 ##  :     : : :               :: :: :    :   : :   :        :: : :    ##
 
-include window-rules
-include autostart
-include theme
-include input
-
-# SET MODIFACATOR KEY TO SUPER (Mod4) OR ALT (Mod1) #
-set $mod Mod4
-
 # SET WORKSPACE NAMES
 set $wb01  "1"
 set $wb02  "2"
@@ -40,152 +32,6 @@ set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 font monospace
 
-# SET KEY BINDINGS # ---------------------------------------------------------------------
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# start a terminal
-bindsym $mod+Return exec $term
-
-# run the file-manager
-bindsym $mod+y exec $fm
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start bemenu
-bindsym $mod+d exec $menu
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# toggle sticky
-bindsym $mod+Shift+s sticky toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# switch to workspace
-bindsym $mod+1 workspace $wb01
-bindsym $mod+2 workspace $wb02
-bindsym $mod+3 workspace $wb03
-bindsym $mod+4 workspace $wb04
-bindsym $mod+5 workspace $wb05
-bindsym $mod+6 workspace $wb06
-bindsym $mod+7 workspace $wb07
-bindsym $mod+8 workspace $wb08
-bindsym $mod+9 workspace $wb09
-bindsym $mod+0 workspace $wb10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $wb01
-bindsym $mod+Shift+2 move container to workspace $wb02
-bindsym $mod+Shift+3 move container to workspace $wb03
-bindsym $mod+Shift+4 move container to workspace $wb04
-bindsym $mod+Shift+5 move container to workspace $wb05
-bindsym $mod+Shift+6 move container to workspace $wb06
-bindsym $mod+Shift+7 move container to workspace $wb07
-bindsym $mod+Shift+8 move container to workspace $wb08
-bindsym $mod+Shift+9 move container to workspace $wb09
-bindsym $mod+Shift+0 move container to workspace $wb10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "swaynagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'sway-msg exit'"
-
-# move workspace around monitors
-bindsym $mod+comma move workspace to output right
-bindsym $mod+period move workspace to output left
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the windows width.
-        # Pressing right will grow the windows width.
-        # Pressing up will shrink the windows height.
-        # Pressing down will grow the windows height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym odiaeresis resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# screenshots
-bindsym $mod+p exec scrot
-bindsym $mod+Print exec scrot
-
-# go to focused windows
-bindsym $mod+x [urgent=latest] focus
-
-# ALSA audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -u -i 5 > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(pamixer --get-volume)"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -u -d 5 > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(pamixer --get-volume)"
-bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null"
-
-bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
-
 output * bg /home/tillm/img/XT206489.jpg fill
 
 # ----------------------------------------------------------------------------------------
@@ -197,16 +43,20 @@ assign [class="(?i)steam"] $wb05
 # remove window decoration
 default_border pixel 3
 
-# much gaps
 gaps inner 10
 gaps outer 0
 
-# such intelligence
 #smart_gaps on
 #smart_borders no_gaps
-
-# wow
 
 # make a nice looking terminal gap for workspace 10
 workspace $wb10 gaps inner 200
 workspace $wb10 gaps outer 0
+
+# INCLUDES
+include window-rules
+include autostart
+include theme
+include input
+include resize-mode
+include key-bindings
