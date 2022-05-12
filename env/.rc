@@ -91,7 +91,7 @@ alias tb='$EDITOR $XDG_DOCUMENTS_HOME/tagebuch/$(date --rfc-3339=date).md'
 
 alias yt2mp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --'
 
-alias synhi='source-highlight -f esc'
+alias synhi='source-highlight -f esc -o STDOUT -i'
 
 alias vivadox="source /opt/Xilinx/Vivado/2020.3/settings64.sh && vivado"
 
