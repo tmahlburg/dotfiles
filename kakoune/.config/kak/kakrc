@@ -95,6 +95,7 @@ hook global BufSetOption filetype=markdown %{
 # set up html environment
 hook global BufSetOption filetype=html %{
     set buffer formatcmd 'tidy5 -i -w 80 -utf8'
+    set buffer tabstop 2
 }
 
 # set up js environment
@@ -171,8 +172,8 @@ plug "vbauerster/second-light" domain "GitHub.com" theme
 plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
 
 plug "andreyorst/smarttab.kak" %{
-    hook global WinSetOption filetype=(c|verilog|sh|html) noexpandtab
-    hook global WinSetOption filetype=(python|java) expandtab
+    hook global WinSetOption filetype=(c|verilog|sh) noexpandtab
+    hook global WinSetOption filetype=(python|java|html) expandtab
 }
 
 #plug "kak-lsp/kak-lsp" do %{
