@@ -11,13 +11,13 @@ The dotfiles are configuring three very different systems and depend on a list o
 **type**: desktop pc\
 **screens**:
 * DVI-D-1: 1920x1080
-* DP-1: 1366x768
+* DP-2: 1280x1024
 
 **cpu**: AMD Ryzen 5 1600 6C12T @ 3.2-3.6 GHz\
 **gpu**: AMD Radeon RX 480 4GiB\
 **ram**: 16GiB DDR4-3200\
 **disk**:
-* 240G SSD - Windows C: (NTFS) | /boot (FAT32)
+* 500G NVMe - Windows C: (NTFS) | /boot (FAT32)
 * 120G SSD - [Void Linux](https://voidlinux.org) / (XFS)
 * 150G HDD - /home (ext4) | 32G SWAP
 * 500G HDD - D: (NTFS)

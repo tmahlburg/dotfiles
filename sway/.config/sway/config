@@ -34,6 +34,9 @@ font monospace
 
 output * bg /home/tillm/img/background fill
 
+output DVI-D-1 pos 0 0
+output DP-2 pos 1920 0
+
 # ----------------------------------------------------------------------------------------
 
 # PROGRAM SPECIFIC SETTINGS #
