@@ -38,7 +38,7 @@ fi
 # source: https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
 if ! pgrep ssh-agent > /dev/null; then
 	ssh-agent > "/tmp/ssh-agent-$USER.env"
-fi
-if test -z "$SSH_AUTH_SOCK"; then
-	. "/tmp/ssh-agent-$USER.env" >/dev/null
+	if test -z "$SSH_AUTH_SOCK"; then
+		. "/tmp/ssh-agent-$USER.env" >/dev/null
+	fi
 fi
