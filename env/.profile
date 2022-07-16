@@ -28,7 +28,9 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 	fi
 
 	# run onedrive
-	#onedrive -m > .log/onedrive.log &
+	if [ -f "/usr/bin/onedrive" ] ; then
+		onedrive -m --enable-logging &
+	fi
 # cli only -> generator
 elif [ "$(hostname)" = "generator" ] ; then
 	"$HOME/bin/alpine-sysinfo"
