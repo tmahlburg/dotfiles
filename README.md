@@ -17,7 +17,7 @@ The dotfiles are configuring three very different systems and depend on a list o
 **gpu**: AMD Radeon RX 480 4GiB\
 **ram**: 16GiB DDR4-3200\
 **disk**:
-* 500G NVMe - Windows C: (NTFS) | /boot (FAT32)
+* 500G NVMe - Windows C: (NTFS) + WSL using [Void Linux Musl](https://github.com/am11/VoidMuslWSL) | /boot (FAT32)
 * 120G SSD - [Void Linux](https://voidlinux.org) / (XFS)
 * 150G HDD - /home (ext4) | 32G SWAP
 * 500G HDD - D: (NTFS)
@@ -90,7 +90,7 @@ The different modules have the following dependencies:
 * [DejaVu](https://dejavu-fonts.github.io)
 * [Noto](https://www.google.com/get/noto/)
 * [FontAwesome](https://fontawesome.com)
-* [Iosevka](https://github.com/be5invis/Iosevka)
+* [Go Mono](https://go.dev/blog/go-fonts)
 
 ### [kakoune](https://kakoune.org)
 
