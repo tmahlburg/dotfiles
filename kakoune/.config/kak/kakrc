@@ -3,7 +3,7 @@
 ##################
 
 # disable clippy ascii art
-set global ui_options ncurses_assistant=off
+set global ui_options terminal_assistant=none
 
 # set info window
 set -add global autoinfo normal
