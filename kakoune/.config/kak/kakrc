@@ -52,7 +52,7 @@ hook global BufCreate APKBUILD %{
     set-option buffer filetype sh
 }
 hook global BufSetOption filetype=sh %{
-    set buffer lintcmd "shellcheck -f gcc"
+    set buffer lintcmd 'shellcheck -f gcc'
     hook buffer BufWritePost .* %{ lint }
     hook buffer InsertEnd .* %{ lint }
     hook buffer NormalIdle .* %{ lint }
