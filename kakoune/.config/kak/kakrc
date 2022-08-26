@@ -102,9 +102,7 @@ hook global BufSetOption filetype=html %{
 
 # set up verilog development environment
 hook global BufSetOption filetype=verilog %{
-    #set-option -add buffer auto-pairs module endmodule begin end task endtask
     # see the file in my ~/bin
-    set-option matching_pairs -add buffer begin end
     set buffer lintcmd 'verilog_lint'
     lint
     hook buffer BufWritePost .* %{ lint }
