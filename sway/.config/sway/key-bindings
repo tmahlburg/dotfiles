@@ -120,5 +120,5 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "pamixer -u -i 5 > /dev/null &
 bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -u -d 5 > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(pamixer --get-volume)"
 bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null && dunstify -h string:x-canonical-private-synchronous:audio 'Volume:' $(pamixer --get-volume-human)"
 
-bindsym XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
-bindsym XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
+bindsym --locked XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
+bindsym --locked XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
