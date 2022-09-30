@@ -73,7 +73,7 @@ hook global WinSetOption filetype=python %{
 
 # create c development environment
 hook global BufSetOption filetype=c %{
-    set buffer formatcmd 'indent -kr'
+    set buffer formatcmd 'indent -linux -i4 -ts4'
     clang-enable-autocomplete
     clang-enable-diagnostics
     set buffer clang_options '-std=c11 -Wall -Wextra -pedantic'
