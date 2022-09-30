@@ -17,8 +17,14 @@ export LIBVA_DRIVER_NAME=radeonsi
 export VDPAU_DRIVER=radeonsi
 
 # setup qt styling
-export QT_QPA_PLATFORMTHEME=qt5ct
-#export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=wayland
+export QT_STYLE_OVERRIDE=breeze
 
 # setup libreoffice to use qt5
 export SAL_USE_VCLPLUGIN=qt5
+
+# java setup
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# wlumen workaround
+export WLR_DRM_NO_MODIFIERS=1
