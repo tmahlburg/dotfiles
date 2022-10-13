@@ -29,7 +29,7 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 
 	# run onedrive
 	if [ -f "/usr/bin/onedrive" ] ; then
-		onedrive -m --enable-logging &
+		onedrive -m --enable-logging >/dev/null &
 	fi
 # cli only -> generator
 elif [ "$(hostname)" = "generator" ] ; then
