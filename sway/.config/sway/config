@@ -24,8 +24,8 @@ set $wb10 "10"
 # SET TOOLS #
 set $term alacritty
 set $fm "env XDG_CURRENT_DESKTOP=GNOME python3 -m tfm"
-set $menu "bemenu-run -p run: -l 5 --fn 'monospace 12' --nb '$bg' --nf '$black' \
---tb '$bg' --tf '$black' --fb '$bg' --ff '$black' --hb '$br_black' --hf '$br_green'"
+set $menu "tofi-run | xargs swaymsg exec --"
+set $dmenu "tofi-drun | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
 # FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
