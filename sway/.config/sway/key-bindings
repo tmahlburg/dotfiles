@@ -123,3 +123,16 @@ bindsym XF86AudioMute exec --no-startup-id "pamixer -t > /dev/null && dunstify -
 
 bindsym --locked XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
+
+# mouse gestures
+bindgesture swipe:3:right workspace prev
+bindgesture swipe:3:left workspace next
+bindgesture swipe:3:up fullscreen toggle
+
+bindgesture hold:3 sticky toggle
+bindgesture swipe:4:down kill
+bindgesture swipe:4:up floating toggle
+
+# lock screen and suspend
+#bindsym Super_L exec loginctl suspend
+bindsym $mod+F10 exec loginctl suspend
