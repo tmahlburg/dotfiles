@@ -74,6 +74,15 @@ toggle_bat_conservation () {
 	fi
 }
 
+suedit () {
+	cp "$1" "/tmp/$(basename $1)"
+	"$EDITOR" "/tmp/$(basename $1)"
+	if ! diff -q "$1" "/tmp/$(basename $1)" ; then
+		doas chown root "/tmp/$(basename $1)"
+		doas mv "/tmp/$(basename $1)" "$1"
+	fi
+}
+
 # ALIASES #
 alias :q='exit'
 alias :Q='exit'
