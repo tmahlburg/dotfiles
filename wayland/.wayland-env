@@ -26,5 +26,5 @@ export SAL_USE_VCLPLUGIN=qt6
 # java setup
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# wlumen workaround
+# wluma workaround
 export WLR_DRM_NO_MODIFIERS=1
