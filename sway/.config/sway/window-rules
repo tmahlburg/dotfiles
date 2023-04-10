@@ -1,1 +1,2 @@
 for_window [title="Bild-in-Bild"] floating enable
+for_window [title="Waydroid"] floating enable
