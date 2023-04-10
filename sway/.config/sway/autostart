@@ -9,7 +9,3 @@ exec --no-startup-id swayidle -w before-sleep lock.sh
 
 # notifications
 exec --no-startup-id dunst &
-
-# audio
-exec --no-startup-id pipewire &
-exec --no-startup-id pipewire-pulse &

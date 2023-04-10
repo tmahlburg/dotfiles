@@ -24,12 +24,18 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 
 	# run spotifyd, if available
 	if [ -f "/usr/bin/spotifyd" ] ; then
-		spotifyd
+		spotifyd >/dev/null
 	fi
 
 	# run onedrive
 	if [ -f "/usr/bin/onedrive" ] ; then
 		onedrive -m --enable-logging >/dev/null &
+	fi
+
+	# run pipewire
+	if [ -f "/usr/bin/pipewire" && -f "/usr/bin/pipewire" ] ; then
+		pipewire &
+		pipewire-pulse &
 	fi
 # cli only -> generator
 elif [ "$(hostname)" = "generator" ] ; then
