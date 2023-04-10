@@ -10,7 +10,7 @@ extract () {
         *.tar.gz)    tar xvzf "$1"        ;;
         *.tar.xz)    tar xvJf "$1"        ;;
         *.bz2)       bunzip2 "$1"         ;;
-        *.rar)       unrar e "$1"         ;;
+        *.rar)       unrar x "$1"         ;;
         *.gz)        pigz -d "$1"         ;;
         #*.gz)        gunzip "$1"          ;;
         *.tar)       tar xvf "$1"         ;;
@@ -116,7 +116,7 @@ alias grep='grep --color=auto'
 
 alias screenshare='/usr/libexec/xdg-desktop-portal -r && /usr/libexec/xdg-desktop-portal-wlr'
 
-#alias vivaldi-stable='vivaldi-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --use-gl=egl --enable-features=VaapiVideoDecoder'
+#alias vivaldi-stable='vivaldi-stable --ozone-platform-hint=auto'
 
 alias xdg-open='$HOME/bin/xdg-open'
 
