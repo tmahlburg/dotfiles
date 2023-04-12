@@ -167,7 +167,7 @@ plug "vbauerster/second-light" domain "GitHub.com" theme
 
 plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
 # setup color
-colorscheme base16-default-light
+colorscheme gruvbox-light
 
 plug "andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh) noexpandtab

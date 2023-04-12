@@ -1,31 +1,29 @@
 # THEMING #
-set $bg #ffffff
-set $black #000000
-set $br_black #cdcdcd
-set $white #878787
-set $fg #474747
-set $br_white #282828
+set $bg #fbf1c7
+set $black #fbf1c7
+set $br_black #928374
+set $white #7c6f64
+set $fg #3c3836
+set $br_white #3c3836
 
-set $red #d6000c
-set $green #1d9700
-set $yellow #c49700
-set $blue #0064e4
-set $magenta #dd0f9d
-set $cyan #00ad9c
-set $orange #d04a00
-set $violet #7f51d6
+set $red #cc241d
+set $green #98971a
+set $yellow #79921
+set $blue #458588
+set $magenta #b16286
+set $cyan #689d6a
+set $orange #d65d0e
 
-set $br_red #bf0000
-set $br_green #008400
-set $br_yellow #af8500
-set $br_blue #0054cf
-set $br_magenta #c7008b
-set $br_cyan #009a8a
-set $br_orange #ba3700
-set $br_violet #6b40c3
+set $br_red #9d0006
+set $br_green #79740e
+set $br_yellow #b57614
+set $br_blue #076678
+set $br_magenta #8f3f71
+set $br_cyan #427b58
+set $br_orange #iaf3a03
 
 # clientclass border backgr. text indicator
-client.focused $black $black $fg $black
-client.focused_inactive $br_green $br_green $fg $br_green
-client.unfocused $br_green $br_green $fg $br_green
-client.urgent $br_red $br_red $white $br_cyan
+client.focused $blue $blue $bg $blue
+client.focused_inactive $magenta $magenta $bg $magenta
+client.unfocused $magenta $magenta $bg $magenta
+client.urgent $red $red $bg $red

@@ -8,9 +8,14 @@
 awesome: &awesome FontAwesome 5 Free:style=solid:pixelsize=14
 awesome_brands: &awesome_brands FontAwesome 5 Brands:pixelsize=16
 
-std_underline: &std_underline {underline: { size: 2, color: 1d9700ff}}
+bg: &bg fbf1c7ff
+fg: &fg 3c3836ff
+blue: &blue 458588ff
+magenta: &magenta 16286ff
+red: &red cc241dff
+green: &green 98971aff
+yellow: &yellow d79921ff
 
-# This is THE bar configuration
 bar:
   monitor: eDP-1
   height: 30
@@ -21,12 +26,12 @@ bar:
   # Default font
   font: monospace:pixelsize=16
 
-  foreground: 000000ff
-  background: ffffffff
+  foreground: *fg
+  background: *bg
 
   border:
     width: 3
-    color: 000000ff
+    color: *blue
     margin: 10
     top-margin: 0
 
@@ -36,12 +41,12 @@ bar:
           - string: &i3_common {margin: 5, on-click: "swaymsg --quiet workspace {name}"}
           - string: &default {<<: *i3_common, text: "{name}"}
           - focused: &focused
-              foreground: 008400ff
-              deco: {background: {color: cdcdcdff}}
+              foreground: *bg
+              deco: {background: {color: *blue}}
           - invisible: &invisible {foreground: 000000cc}
           - urgent: &urgent
-              foreground: 000000ff
-              deco: {background: {color: bc2b3fff}}
+              foreground: *bg
+              deco: {background: {color: *red}}
         sort: ascending
         content:
           "":
@@ -60,7 +65,7 @@ bar:
                 list:
                   spacing: 0
                   items:
-                    - string: {text: "{application}", max: 15, foreground: 008400ff}
+                    - string: {text: "{application}", max: 15, foreground: *fg}
                     - string: {text: ": "}
                     - string: {text: "{title}", max: 50}
 
@@ -70,10 +75,10 @@ bar:
         content:
           map:
             default:
-                - {string: {text: , font: *awesome, foreground: ffffff66}}
+                - {string: {text: , font: *awesome, foreground: *fg}}
                 - {string: {text: "{ipv4}"}}
             conditions:
-              state == down: {string: {text: , font: *awesome, foreground: ff0000ff}}
+              state == down: {string: {text: , font: *awesome, foreground: *red}}
               state == up:
                 map:
                   default:
@@ -81,7 +86,7 @@ bar:
                       - {string: {text: "{ipv4}"}}
                   conditions:
                     ipv4 == "":
-                        - {string: {text: , font: *awesome, foreground: ffffff66}}
+                        - {string: {text: , font: *awesome, foreground: *fg}}
                         - {string: {text: "{ipv4}"}}
     - backlight:
         name: amdgpu_bl0
@@ -96,8 +101,8 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text: , foreground: ff0000ff, font: *awesome}
-                      - string: {text: , foreground: ffa600ff, font: *awesome}
+                      - string: {text: , foreground: *red, font: *awesome}
+                      - string: {text: , foreground: *yellow, font: *awesome}
                       - string: {text: , font: *awesome}
                       - string: {text: , font: *awesome}
                       - string: {text: , font: *awesome}
@@ -105,29 +110,29 @@ bar:
                       - string: {text: , font: *awesome}
                       - string: {text: , font: *awesome}
                       - string: {text: , font: *awesome}
-                      - string: {text: , foreground: 00ff00ff, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
                 - string: {text: "{capacity}% {estimate}"}
               state == charging:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
-                      - string: {text: , foreground: 008400ff, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
                 - string: {text: "{capacity}% {estimate}"}
               state == "not charging":
                 - string: {text: , font: *awesome}
                 - string: {text: "{capacity}%"}
               state == full:
-                - string: {text: , foreground: 008400ff, font: *awesome}
-                - string: {text: "{capacity}% full"}
+                - string: {text: , foreground: *green, font: *awesome}
+                - string: {text: "full"}
     - clock:
         time-format: "%H:%M"
         content:
