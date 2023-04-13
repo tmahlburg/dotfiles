@@ -10,17 +10,17 @@ The dotfiles are configuring three very different systems and depend on a list o
 
 **type**: desktop pc\
 **screens**:
-* DVI-D-1: 1920x1080
+* DVI-D-1: 2560x1440
 * DP-2: 1280x1024
 
-**cpu**: AMD Ryzen 5 1600 6C12T @ 3.2-3.6 GHz\
-**gpu**: AMD Radeon RX 480 4GiB\
-**ram**: 16GiB DDR4-3200\
+**cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
+**gpu**: AMD Radeon RX 6700XT 12GiB\
+**ram**: 16GiB DDR4-3000\
 **disk**:
 * 500G NVMe - Windows C: (NTFS) + WSL using [Void Linux Musl](https://github.com/am11/VoidMuslWSL) | /boot (FAT32)
-* 120G SSD - [Void Linux](https://voidlinux.org) / (XFS)
-* 150G HDD - /home (ext4) | 32G SWAP
-* 500G HDD - D: (NTFS)
+* 256G SSD - [Void Linux](https://voidlinux.org) / (XFS)
+* 500G HDD - /home (ext4) | 32G SWAP
+* 1T HDD - D: (NTFS)
 * BD-RW
 
 ### maschine
@@ -41,7 +41,7 @@ The dotfiles are configuring three very different systems and depend on a list o
 **ram**: 2GiB\
 **disk**:
 * 15G microSD - [Alpine Linux](https://alpinelinux.org) (FAT32)
-* 2T HDD - data (NTFS)
+* 4T HDD - data (NTFS)
 
 The different modules have the following dependencies:
 
@@ -71,6 +71,7 @@ The different modules have the following dependencies:
 * [7z](http://p7zip.sourceforge.net) - function
 * [xz](https://tukaani.org/xz/format.html) - function
 * [markdown](http://www.pell.portland.or.us/~orc/Code/discount/) - function
+* [doas](https://github.com/Duncaen/OpenDoas) - function
 * [pacman](https://archlinux.org/pacman/) - alias
 * [git](https://git-scm.com) - alias
 * [youtube-dl](https://youtube-dl.org) - alias
@@ -79,6 +80,8 @@ The different modules have the following dependencies:
 * [curl](https://curl.se) - alias
 * [xdg-dekstop-portal](https://github.com/flatpak/xdg-desktop-portal) - alias
 * [xdg-desktop-portal-wlr](https://github.com/emersion/xdg-desktop-portal-wlr)
+* [itch](https://itch.io/app) - alias
+* [tfm](https://github.com/tmahlburg/tfm) - alias
 * [elinks](http://elinks.or.cz) - as $TUI_BROWSER
 * [less](http://www.greenwoodsoftware.com/less/) - as $PAGER
 * [kakoune](https://kakoune.org) - as $EDITOR
@@ -125,7 +128,7 @@ The different modules have the following dependencies:
 
 * [alacritty](https://github.com/alacritty/alacritty) - key binding
 * [spacefm](https://ignorantguru.github.io/spacefm/) - key binding
-* [bemenu](https://github.com/Cloudef/bemenu) - key binding
+* [tofi](https://github.com/philj56/tofi) - key binding
 * [grim](https://github.com/emersion/grim) - key binding
 * [pamixer](https://github.com/cdemoulins/pamixer) - key binding
 * [brightnessctl](https://github.com/Hummer12007/brightnessctl) - key binding
@@ -135,6 +138,7 @@ The different modules have the following dependencies:
 * [swayidle](https://github.com/swaywm/swayidle) - autostart
 * [pipewire](https://pipewire.org) - autostart
 * [pipewire-pulse](https://pipewire.org) - autostart
+* [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) - autostart
 * references on the ```wayland``` module in this repository
 
 ### [wayland](https://wayland.freedesktop.org)
