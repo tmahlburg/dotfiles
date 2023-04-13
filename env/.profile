@@ -32,11 +32,6 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 		onedrive -m --enable-logging >/dev/null &
 	fi
 
-	# run pipewire
-	if [ -f "/usr/bin/pipewire" && -f "/usr/bin/pipewire" ] ; then
-		pipewire &
-		pipewire-pulse &
-	fi
 # cli only -> generator
 elif [ "$(hostname)" = "generator" ] ; then
 	"$HOME/bin/alpine-sysinfo"
