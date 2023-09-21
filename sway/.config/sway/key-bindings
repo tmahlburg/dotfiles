@@ -110,8 +110,8 @@ bindsym $mod+period move workspace to output left
 bindsym $mod+r mode "resize"
 
 # screenshots
-bindsym $mod+p exec scrot
-bindsym $mod+Print exec scrot
+bindsym $mod+p exec grim
+bindsym $mod+Print exec grim
 
 # go to focused windows
 bindsym $mod+x [urgent=latest] focus
