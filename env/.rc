@@ -68,9 +68,9 @@ toggle_bat_conservation () {
 	current=$(cat "$switch")
 
 	if [ "$current" = "0" ] ; then
-		echo "1" | sudo tee "$switch"
+		echo "1" | doas tee "$switch"
 	elif [ "$current" = "1" ] ; then
-		echo "0" | sudo tee "$switch"
+		echo "0" | doas tee "$switch"
 	fi
 }
 
@@ -125,3 +125,6 @@ alias btc='blueman-applet && blueman-manager'
 alias itch='$HOME/.itch/itch'
 
 alias tfm='XDG_CURRENT_DESKTOP=GNOME python3 -m tfm'
+
+
+alias wbnu='cp draft.html'
