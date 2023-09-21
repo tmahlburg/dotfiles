@@ -94,6 +94,7 @@ hook global BufSetOption filetype=markdown %{
 hook global BufSetOption filetype=html %{
     set buffer formatcmd 'tidy5 -i -w 80 -utf8'
     set buffer tabstop 2
+	set global disabled_hooks .*-indent
 }
 
 # set up js environment
