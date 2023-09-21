@@ -93,7 +93,7 @@ bar:
         content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]
     - battery:
         name: BAT1
-        poll-interval: 60
+        poll-interval: 60000
         content:
           map:
             conditions:
