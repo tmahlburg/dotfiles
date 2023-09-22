@@ -32,7 +32,7 @@ set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
 font monospace 14
 
-output * bg /home/tillm/img/background fill
+output * bg ~/img/background fill
 
 output DVI-D-1 pos 0 0
 output DP-2 pos 1920 0
