@@ -8,11 +8,16 @@
 awesome: &awesome FontAwesome 5 Free:style=solid:pixelsize=14
 awesome_brands: &awesome_brands FontAwesome 5 Brands:pixelsize=16
 
-std_underline: &std_underline {underline: { size: 2, color: ff0000ff}}
+bg: &bg fbf1c7ff
+fg: &fg 3c3836ff
+blue: &blue 458588ff
+magenta: &magenta 16286ff
+red: &red cc241dff
+green: &green 98971aff
+yellow: &yellow d79921ff
 
-# This is THE bar configuration
 bar:
-  monitor: DVI-D-1
+  monitor: eDP-1
   height: 30
   location: bottom
   spacing: 5
@@ -21,12 +26,12 @@ bar:
   # Default font
   font: monospace:pixelsize=16
 
-  foreground: 000000ff
-  background: ffffffff
+  foreground: *fg
+  background: *bg
 
   border:
-    width: 3
-    color: 000000ff
+    width: 4
+    color: *blue
     margin: 10
     top-margin: 0
 
@@ -36,59 +41,48 @@ bar:
           - string: &i3_common {margin: 5, on-click: "swaymsg --quiet workspace {name}"}
           - string: &default {<<: *i3_common, text: "{name}"}
           - focused: &focused
-              deco: {stack: [background: {color: ffa0a04c}, <<: *std_underline]}
+              foreground: *bg
+              deco: {background: {color: *blue}}
           - invisible: &invisible {foreground: 000000cc}
           - urgent: &urgent
-              foreground: 000000ff
-              deco: {stack: [background: {color: bc2b3fff}, <<: *std_underline]}
+              foreground: *bg
+              deco: {background: {color: *red}}
         sort: ascending
         content:
           "":
             map:
-              tag: state
-              values:
-                focused:   {string: {<<: [*default, *focused]}}
-                unfocused: {string: {<<: *default}}
-                invisible: {string: {<<: [*default, *invisible]}}
-                urgent:    {string: {<<: [*default, *urgent]}}
+              conditions:
+                state == focused:   {string: {<<: [*default, *focused]}}
+                state == unfocused: {string: {<<: *default}}
+                state == invisible: {string: {<<: [*default, *invisible]}}
+                state == urgent:    {string: {<<: [*default, *urgent]}}
           current:
             map:
               left-margin: 7
-              tag: application
-              values:
-                "": {string: {text: "{title}"}}
+              conditions:
+                application == "": {string: {text: "{title}"}}
               default:
                 list:
                   spacing: 0
                   items:
-                    - string: {text: "{application}", max: 15, foreground: ffa0a0ff}
+                    - string: {text: "{application}", max: 15, foreground: *fg}
                     - string: {text: ": "}
-                    - string: {text: "{title}", max: 150}
+                    - string: {text: "{title}", max: 50}
 
   right:
     - network:
-        name: enp6s0
+        name: enp5s0
         content:
           map:
-            tag: carrier
-            values:
-              false: {empty: {}}
-              true:
+            conditions:
+              ~carrier: {empty: {}}
+              carrier:
                 map:
-                  tag: state
                   default: {string: {text: , font: *awesome, foreground: ffffff66}}
-                  values:
-                    up:
-                      map:
-                        tag: ipv4
-                        default:
-                          - {string: {text: , font: *awesome}}
-                          - {string: {text: "{ipv4}"}}
-                        values:
-                          "": {string: {text: , font: *awesome, foreground: ffffff66}}
+                  conditions:
+                    state == up && ipv4 != "": {string: {text: , font: *awesome}}
     - clock:
         time-format: "%H:%M"
         content:
-          - string: {text: , font: *awesome, right-margin: 5}
           - string: {text: "{date}", right-margin: 5}
           - string: {text: "{time}", right-margin: 5}
