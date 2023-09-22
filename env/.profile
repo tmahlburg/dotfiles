@@ -29,7 +29,9 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
 
 	# run onedrive
 	if [ -f "/usr/bin/onedrive" ] ; then
-		onedrive -m --enable-logging >/dev/null &
+		if ! pgrep onedrive >/dev/null ; then
+			onedrive -m --enable-logging >/dev/null &
+		fi
 	fi
 
 # cli only -> generator
