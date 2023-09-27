@@ -192,6 +192,7 @@ hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
 plug "jjk96/kakoune-rainbow"
 
 plug "tmahlburg/kakoune-verilog"
+plug "tmahlburg/kakoune-systemverilog"
 
 plug "greenfork/active-window.kak"
 
