@@ -111,6 +111,15 @@ hook global BufSetOption filetype=verilog %{
     hook buffer NormalIdle .* %{ lint }
 }
 
+# set up verilog development environment
+hook global BufSetOption filetype=systemverilog %{
+    set buffer lintcmd 'verible-verilog-lint'
+    lint
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
+}
+
 # set up latex environment
 hook global BufCreate .*\.tex %{
     set-option buffer filetype latex
