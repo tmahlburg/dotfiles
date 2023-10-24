@@ -19,3 +19,7 @@ exec --no-startup-id dunst &
 exec --no-startup-id pipewire &
 exec --no-startup-id wireplumber &
 exec --no-startup-id pipewire-pulse &
+
+# import environment to dbus for screensharing
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
