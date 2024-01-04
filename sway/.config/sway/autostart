@@ -15,6 +15,9 @@ exec sway-audio-idle-inhibit
 # notifications
 exec --no-startup-id dunst &
 
+# low battery warning
+exec --no-startup-id test $(hostname) = maschine && batsignal -b
+
 # run pipewire
 exec --no-startup-id pipewire &
 exec --no-startup-id wireplumber &
