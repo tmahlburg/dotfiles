@@ -52,11 +52,11 @@ hook global BufCreate APKBUILD %{
     set-option buffer filetype sh
 }
 hook global BufSetOption filetype=sh %{
+    set buffer formatcmd 'shfmt'
     set buffer lintcmd 'shellcheck -f gcc'
     hook buffer BufWritePost .* %{ lint }
     hook buffer InsertEnd .* %{ lint }
     hook buffer NormalIdle .* %{ lint }
-    #set-option -add buffer auto_pairs if fi case esac
 }
 
 # create python development environment
@@ -132,13 +132,13 @@ hook global BufSetOption filetype=latex %{
     add-highlighter window/wordwrap wrap -word
 
     #set-option buffer makecmd 'latexmk -pdf -quiet'
-    #set-option buffer makecmd 'pdflatex'
+    set-option buffer makecmd 'pdflatex'
     set-option buffer lintcmd 'chklatex %f:%l:%c: %k: %n %m'
     set-option buffer formatcmd 'latexindent'
 
     hook bugger BufWritePost .* %{
-        lint
-#        make
+#        lint
+        make
     }
 }
 
@@ -209,3 +209,4 @@ plug "greenfork/active-window.kak"
 plug "ftonneau/wordcount.kak"
 
 plug 'casonadams/insert-indicator'
+plug 'eraserhd/kak-ansi'
