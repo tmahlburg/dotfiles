@@ -123,6 +123,8 @@ bindsym --locked XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDI
 bindsym --locked XF86MonBrightnessUp exec --no-startup-id "brightnessctl s +2% > /dev/null"
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id "brightnessctl s 2%- > /dev/null"
 
+bindsym --locked XF86AudioPlay exec --no-startup-id "playerctl play-pause"
+
 # mouse gestures
 bindgesture swipe:3:right workspace prev
 bindgesture swipe:3:left workspace next

@@ -116,13 +116,14 @@ alias grep='grep --color=auto'
 
 alias screenshare='/usr/libexec/xdg-desktop-portal -r && /usr/libexec/xdg-desktop-portal-wlr'
 
+alias vivaldi-stable='vivaldi-stable --enable-features=VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,UseOzonePlatform --ozone-platform=wayland'
 #alias vivaldi-stable='vivaldi-stable --ozone-platform-hint=auto'
 
 alias xdg-open='$HOME/bin/xdg-open'
 
 alias btc='blueman-applet && blueman-manager'
 
-alias itch='$HOME/.itch/itch'
+alias itch='$HOME/.itch/itch'::
 
 alias tfm='XDG_CURRENT_DESKTOP=GNOME python3 -m tfm'
 

@@ -92,9 +92,13 @@ hook global BufSetOption filetype=markdown %{
 
 # set up html environment
 hook global BufSetOption filetype=html %{
-    set buffer formatcmd 'tidy5 -i -w 80 -utf8'
+    set buffer formatcmd "run(){tidy -q -omit -w 80 -utf8 2>/dev/null || true; } && run"
+    set buffer lintcmd "tidy -e -omit --gnu-emacs yes --quiet yes 2>&1"
     set buffer tabstop 2
-	set global disabled_hooks .*-indent
+	set buffer disabled_hooks .*-indent
+    hook buffer BufWritePost .* %{ lint }
+    hook buffer InsertEnd .* %{ lint }
+    hook buffer NormalIdle .* %{ lint }
 }
 
 # set up js environment
@@ -111,7 +115,7 @@ hook global BufSetOption filetype=verilog %{
     hook buffer NormalIdle .* %{ lint }
 }
 
-# set up verilog development environment
+# set up systemverilog development environment
 hook global BufSetOption filetype=systemverilog %{
     set buffer lintcmd 'verible-verilog-lint'
     lint
@@ -177,7 +181,7 @@ plug "vbauerster/second-light" domain "GitHub.com" theme
 
 plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
 # setup color
-colorscheme gruvbox-light
+colorscheme selenized-white
 
 plug "andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh) noexpandtab

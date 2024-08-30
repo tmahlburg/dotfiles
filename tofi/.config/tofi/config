@@ -50,7 +50,7 @@
 	# Default text color
 	#
 	# All text defaults to this color if not otherwise specified.
-	text-color = #3c3836
+	text-color = #000000
 
 	# All pieces of text have the same theming attributes available:
 	#
@@ -69,25 +69,25 @@
 
 	# Prompt text theme
 	# prompt-color = #FFFFFF
-	prompt-background = #fbf1c7
+	prompt-background = #b7b7b7
 	prompt-background-padding = 0
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
-	placeholder-color = #928374
-	placeholder-background = #fbf1c7
+	placeholder-color = #d28d8d
+	placeholder-background = #b7b7b7
 	placeholder-background-padding = 0
-	placeholder-background-corner-radius = 0
+	placeholder-background-corner-radius = 5
 
 	# Input text theme
 	# input-color = #FFFFFF
-	input-background = #fbf1c7
+	input-background = #b7b7b7
 	input-background-padding = 0
 	input-background-corner-radius = 0
 
 	# Default result text theme
 	# default-result-color = #FFFFFF
-	default-result-background = #fbf1c7
+	default-result-background = #b7b7b7
 	default-result-background-padding = 0
 	default-result-background-corner-radius = 0
 
@@ -102,13 +102,13 @@
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
-	selection-color = #fbf1c7
-	selection-background = #458588
+	selection-color = #000000
+	selection-background = #96b5b5
 	selection-background-padding = 0
 	selection-background-corner-radius = 0
 
 	# Matching portion of selection text
-	selection-match-color = #00000000
+	selection-match-color = #d28d8d
 
 #
 ### Text layout
@@ -143,22 +143,22 @@
 	height = 100
 
 	# Window background color
-	background-color = #fbf1c7
+	background-color = #b7b7b7
 
 	# Width of the border outlines in pixels.
 	outline-width = 2
 
 	# Border outline color
-	outline-color = #458588
+	outline-color = #96b5b5
 
 	# Width of the border in pixels.
 	border-width = 0
 
 	# Border color
-	border-color = #F92672
+	border-color = #96b5b5
 
 	# Radius of window corners in pixels.
-	corner-radius = 0
+	corner-radius = 5
 
 	# Padding between borders and text. Can be pixels or a percentage.
 	padding-top = 8

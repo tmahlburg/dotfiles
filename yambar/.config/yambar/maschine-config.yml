@@ -8,10 +8,10 @@
 awesome: &awesome FontAwesome 5 Free:style=solid:pixelsize=14
 awesome_brands: &awesome_brands FontAwesome 5 Brands:pixelsize=16
 
-bg: &bg fbf1c7ff
-fg: &fg 3c3836ff
-blue: &blue 458588ff
-magenta: &magenta 16286ff
+bg: &bg b7b7b7ff
+fg: &fg 000000ff
+blue: &blue 96b5b5ff
+magenta: &magenta d28d8dff
 red: &red cc241dff
 green: &green 98971aff
 yellow: &yellow d79921ff
@@ -30,7 +30,7 @@ bar:
   background: *bg
 
   border:
-    width: 4
+    width: 2
     color: *blue
     margin: 10
     top-margin: 0
@@ -41,8 +41,8 @@ bar:
           - string: &i3_common {margin: 5, on-click: "swaymsg --quiet workspace {name}"}
           - string: &default {<<: *i3_common, text: "{name}"}
           - focused: &focused
-              foreground: *bg
-              deco: {background: {color: *blue}}
+              foreground: *fg
+              deco: {background: {color: *magenta}}
           - invisible: &invisible {foreground: 000000cc}
           - urgent: &urgent
               foreground: *bg
@@ -65,13 +65,13 @@ bar:
                 list:
                   spacing: 0
                   items:
-                    - string: {text: "{application}", max: 15, foreground: *fg}
-                    - string: {text: ": "}
-                    - string: {text: "{title}", max: 50}
+                    - string: {text: "{application}", max: 15, font: monospace:pixelsize=16:slant=italic:weight=bold, foreground: *fg}
+                    - string: {text: ": ", font: monospace:pixelsize=16:slant=italic}
+                    - string: {text: "{title}", font: monospace:pixelsize=16:slant=italic, max: 50}
 
   right:
     - network:
-        name: wlp1s0
+        #name: wlp1s0
         content:
           map:
             default:

@@ -1,26 +1,26 @@
 [colors.bright]
-black = "0x928374"
-blue = "0x076678"
-cyan = "0x427b58"
-green = "0x79740e"
-magenta = "0x8f3f71"
-red = "0x9d0006"
-white = "0x3c3836"
-yellow = "0xb57614"
+black = "0xcdcdcd"
+blue = "0x0054cf"
+cyan = "0x009a8a"
+green = "0x008400"
+magenta = "0xc7008b"
+red = "0xbf0000"
+white = "0x282828"
+yellow = "0xaf8500"
 
 [colors.normal]
-black = "0xfbf1c7"
-blue = "0x458588"
-cyan = "0x689d6a"
-green = "0x98971a"
-magenta = "0xb16286"
-red = "0xcc241d"
-white = "0x7c6f64"
-yellow = "0xd79921"
+black = "0xebebeb"
+blue = "0x0064e4"
+cyan = "0x00ad9c"
+green = "0x1d9700"
+magenta = "0xdd0f9d"
+red = "0xd6000c"
+white = "0x878787"
+yellow = "0xc49700"
 
 [colors.primary]
-background = "0xfbf1c7"
-foreground = "0x3c3836"
+background = "0xffffff"
+foreground = "0x474747"
 
 [font]
 size = 14.0
@@ -40,3 +40,6 @@ mods = "Control|Shift"
 [hints.enabled.mouse]
 enabled = true
 mods = "None"
+
+[window]
+opacity = 1.0

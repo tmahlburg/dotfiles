@@ -1,5 +1,5 @@
 # bar
-exec_always --no-startup-id pkill yambar && yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &
+exec_always --no-startup-id "pkill yambar ; yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &"
 
 # screen filter
 exec --no-startup-id gammastep -l 51:12 &

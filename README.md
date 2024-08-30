@@ -14,7 +14,7 @@ The dotfiles are configuring three very different systems and depend on a list o
 * DP-2: 1280x1024
 
 **cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
-**gpu**: AMD Radeon RX 6700XT 12GiB\
+**gpu**: AMD Radeon RX 6750XT 12GiB\
 **ram**: 16GiB DDR4-3000\
 **disk**:
 * 500G NVMe - Windows C: (NTFS) + WSL using [Void Linux Musl](https://github.com/am11/VoidMuslWSL) | /boot (FAT32)

@@ -6,6 +6,9 @@ set $white #7c6f64
 set $fg #3c3836
 set $br_white #3c3836
 
+set $gray #b7b7b7
+set $old_green #96b5b5
+
 set $red #cc241d
 set $green #98971a
 set $yellow #79921
@@ -23,7 +26,7 @@ set $br_cyan #427b58
 set $br_orange #iaf3a03
 
 # clientclass border backgr. text indicator
-client.focused $blue $blue $bg $blue
-client.focused_inactive $magenta $magenta $bg $magenta
-client.unfocused $magenta $magenta $bg $magenta
+client.focused $old_green $old_green $bg $old_green
+client.focused_inactive $gray $gray $bg $gray
+client.unfocused $gray $gray $bg $gray
 client.urgent $red $red $bg $red

@@ -10,7 +10,6 @@ export SDL_VIDEODRIVER=wayland
 export ECORE_EVAS_ENGINE=wayland_egl
 export ELM_ENGINE=wayland_egl
 export BEMENU_BACKEND=wayland
-export QT_QPA_PLATFORM=xcb
 
 # hardware video acceleration
 export LIBVA_DRIVER_NAME=radeonsi
