@@ -55,7 +55,7 @@ shadow_offset 10 10
 
 # GAPS #
 # remove window decoration
-default_border pixel 2
+default_border pixel 3
 
 gaps inner 10
 gaps outer 0
