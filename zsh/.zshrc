@@ -1,13 +1,15 @@
-##  @@@@@@@@   @@@@@@   @@@  @@@  @@@@@@@    @@@@@@@  ##
-##  @@@@@@@@  @@@@@@@   @@@  @@@  @@@@@@@@  @@@@@@@@  ##
-##       @@!  !@@       @@!  @@@  @@!  @@@  !@@       ##
-##      !@!   !@!       !@!  @!@  !@!  @!@  !@!       ##
-##     @!!    !!@@!!    @!@!@!@!  @!@!!@!   !@!       ##
-##    !!!      !!@!!!   !!!@!!!!  !!@!@!    !!!       ##
-##   !!:           !:!  !!:  !!!  !!: :!!   :!!       ##
-##  :!:           !:!   :!:  !:!  :!:  !:!  :!:       ##
-##   :: ::::  :::: ::   ::   :::  ::   :::   ::: :::  ##
-##  : :: : :  :: : :     :   : :   :   : :   :: :: :  ##
+# ╔════════════════════════════════════════════════════╗
+# ║                                                    ║
+# ║                     █████                          ║
+# ║                    ░░███                           ║
+# ║   █████████  █████  ░███████   ████████   ██████   ║
+# ║  ░█░░░░███  ███░░   ░███░░███ ░░███░░███ ███░░███  ║
+# ║  ░   ███░  ░░█████  ░███ ░███  ░███ ░░░ ░███ ░░░   ║
+# ║    ███░   █ ░░░░███ ░███ ░███  ░███     ░███  ███  ║
+# ║   █████████ ██████  ████ █████ █████    ░░██████   ║
+# ║  ░░░░░░░░░ ░░░░░░  ░░░░ ░░░░░ ░░░░░      ░░░░░░    ║
+# ║                                                    ║
+# ╚════════════════════════════════════════════════════╝
 
 # THEMING #
 #autoload -Uz promptinit
@@ -62,15 +64,10 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '\eOA' up-line-or-beginning-search # or ^[OA
 bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 
-# SYSINFO #
-#alsi
-
-# source common configuration
+# SOURCE COMMON CONFIGURATION #
 if [ -f "$HOME/.rc" ] ; then
 	source "$HOME/.rc"
 fi
-
-#alias vivaldi-stable='vivaldi'
 
 # SET UP KEY BINDINGS ACCORDING TO https://wiki.archlinux.org/index.php/Zsh#Key_bindings
 # create a zkbd compatible hash;

@@ -1,3 +1,16 @@
+# ╔═══════════════════════════════════════════════════════╗
+# ║                                                       ║
+# ║   █████                █████                          ║
+# ║  ░░███                ░░███                           ║
+# ║   ░███ █████  ██████   ░███ █████ ████████   ██████   ║
+# ║   ░███░░███  ░░░░░███  ░███░░███ ░░███░░███ ███░░███  ║
+# ║   ░██████░    ███████  ░██████░   ░███ ░░░ ░███ ░░░   ║
+# ║   ░███░░███  ███░░███  ░███░░███  ░███     ░███  ███  ║
+# ║   ████ █████░░████████ ████ █████ █████    ░░██████   ║
+# ║  ░░░░ ░░░░░  ░░░░░░░░ ░░░░ ░░░░░ ░░░░░      ░░░░░░    ║
+# ║                                                       ║
+# ╚═══════════════════════════════════════════════════════╝
+
 ##################
 # GENERAL TWEAKS #
 ##################
@@ -181,7 +194,7 @@ plug "vbauerster/second-light" domain "GitHub.com" theme
 
 plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
 # setup color
-colorscheme selenized-white
+colorscheme plain
 
 plug "andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh) noexpandtab
