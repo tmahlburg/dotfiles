@@ -1,4 +1,15 @@
-# dotfiles
+╔═════════════════════════════════════════════════════════════════════════╗
+║                                                                         ║
+║       █████           █████       ██████   ███  ████                    ║
+║      ░░███           ░░███       ███░░███ ░░░  ░░███                    ║
+║    ███████   ██████  ███████    ░███ ░░░  ████  ░███   ██████   █████   ║
+║   ███░░███  ███░░███░░░███░    ███████   ░░███  ░███  ███░░███ ███░░    ║
+║  ░███ ░███ ░███ ░███  ░███    ░░░███░     ░███  ░███ ░███████ ░░█████   ║
+║  ░███ ░███ ░███ ░███  ░███ ███  ░███      ░███  ░███ ░███░░░   ░░░░███  ║
+║  ░░████████░░██████   ░░█████   █████     █████ █████░░██████  ██████   ║
+║   ░░░░░░░░  ░░░░░░     ░░░░░   ░░░░░     ░░░░░ ░░░░░  ░░░░░░  ░░░░░░    ║
+║                                                                         ║
+╚═════════════════════════════════════════════════════════════════════════╝
 
 Dotfiles managed via [stow](https://www.gnu.org/software/stow/), following [this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). They are licensed with the GPLv3.
 
@@ -14,7 +25,7 @@ The dotfiles are configuring three very different systems and depend on a list o
 * DP-2: 1280x1024
 
 **cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
-**gpu**: AMD Radeon RX 6750XT 12GiB\
+**gpu**: GIGABYTE Radeon RX 6750XT 12GiB Gaming OC\
 **ram**: 16GiB DDR4-3000\
 **disk**:
 * 500G NVMe - Windows C: (NTFS) + WSL using [Void Linux Musl](https://github.com/am11/VoidMuslWSL) | /boot (FAT32)
@@ -86,6 +97,7 @@ The different modules have the following dependencies:
 * [less](http://www.greenwoodsoftware.com/less/) - as $PAGER
 * [kakoune](https://kakoune.org) - as $EDITOR
 * [go](https://golang.org) - set $GOPATH
+
 * references the ```wayland``` module in this repository
 
 ### fonts
@@ -127,7 +139,7 @@ The different modules have the following dependencies:
 ### [sway](https://swaywm.org)
 
 * [alacritty](https://github.com/alacritty/alacritty) - key binding
-* [spacefm](https://ignorantguru.github.io/spacefm/) - key binding
+* [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt) - key binding
 * [tofi](https://github.com/philj56/tofi) - key binding
 * [grim](https://github.com/emersion/grim) - key binding
 * [pamixer](https://github.com/cdemoulins/pamixer) - key binding
@@ -139,7 +151,7 @@ The different modules have the following dependencies:
 * [pipewire](https://pipewire.org) - autostart
 * [pipewire-pulse](https://pipewire.org) - autostart
 * [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) - autostart
-* references on the ```wayland``` module in this repository
+* references to the ```wayland``` module in this repository
 
 ### [wayland](https://wayland.freedesktop.org)
 
@@ -147,6 +159,7 @@ The different modules have the following dependencies:
 * [mesa-vaapi](https://mesa3d.org)
 * [mesa-vdpau](https://mesa3d.org)
 * [qt5ct](https://github.com/desktop-app/qt5ct)
+* [qt6ct](https://github.com/trialuser02/qt6ct)
 
 ### xdg
 
