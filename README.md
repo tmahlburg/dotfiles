@@ -1,5 +1,4 @@
-<div style="text-align:center">
-```
+<pre align="center">
 ╔═════════════════════════════════════════════════════════════════════════╗
 ║                                                                         ║
 ║       █████           █████       ██████   ███  ████                    ║
@@ -12,8 +11,7 @@
 ║   ░░░░░░░░  ░░░░░░     ░░░░░   ░░░░░     ░░░░░ ░░░░░  ░░░░░░  ░░░░░░    ║
 ║                                                                         ║
 ╚═════════════════════════════════════════════════════════════════════════╝
-```
-</div>
+</pre>
 
 Dotfiles managed via [stow](https://www.gnu.org/software/stow/), following [this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). They are licensed with the GPLv3.
 
