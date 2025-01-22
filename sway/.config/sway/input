@@ -25,7 +25,7 @@ input * {
 
 input 1:1:AT_Translated_Set_2_keyboard xkb_model "pc104"
 
-seat * hide_cursor 15000
+#seat * hide_cursor 15000
 
 # cursor setup
 set $my_cursor Vanilla-DMZ

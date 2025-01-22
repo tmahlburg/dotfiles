@@ -12,13 +12,13 @@
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
 # bar
-exec_always --no-startup-id "pkill yambar ; yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &"
+exec_always "pkill yambar ; yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &"
 
 # screen filter
-exec --no-startup-id gammastep -l 51:12 &
+exec gammastep -l 51:12 &
 
 # screen lock & inactivity handling
-exec --no-startup-id swayidle -w \
+exec swayidle -w \
 		before-sleep lock.sh \
 		timeout 600 'swaymsg "output * dpms off"' \
 			resume 'swaymsg "output * dpms on"' \
@@ -26,18 +26,18 @@ exec --no-startup-id swayidle -w \
 exec sway-audio-idle-inhibit
 
 # notifications
-exec --no-startup-id dunst &
+exec dunst &
 
 # low battery warning
-exec --no-startup-id test $(hostname) = maschine && batsignal -b
+exec test $(hostname) = maschine && batsignal -b
 
 # run pipewire
-exec --no-startup-id pipewire &
-exec --no-startup-id wireplumber &
-exec --no-startup-id pipewire-pulse &
+exec pipewire &
+exec wireplumber &
+exec pipewire-pulse &
 
 # import environment to dbus for screensharing
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # run pcmanfm-qt in daemon mode
-exec --no-startup-id pcmanfm-qt -d
+exec pcmanfm-qt -d

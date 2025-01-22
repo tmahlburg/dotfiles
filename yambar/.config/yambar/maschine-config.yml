@@ -46,7 +46,7 @@ bar:
   background: *bg
 
   border:
-    width: 2
+    width: 3
     color: *blue
     margin: 10
     top-margin: 0
@@ -87,23 +87,26 @@ bar:
 
   right:
     - network:
-        #name: wlp1s0
+        poll-interval: 1000
         content:
           map:
-            default:
-                - {string: {text: , font: *awesome, foreground: *fg}}
-                - {string: {text: "{ipv4}"}}
+            default: {empty: {}}
             conditions:
-              state == down: {string: {text: , font: *awesome, foreground: *red}}
-              state == up:
+              name == wlp1s0:
                 map:
-                  default:
-                      - {string: {text: , font: *awesome}}
-                      - {string: {text: "{ipv4}"}}
+                  default: {string: {text: , font: *awesome, foreground: ffffff66}}
                   conditions:
-                    ipv4 == "":
-                        - {string: {text: , font: *awesome, foreground: *fg}}
-                        - {string: {text: "{ipv4}"}}
+                    state == down: {string: {text: , font: *awesome, foreground: ff0000ff}}
+                    state == up:
+                      map:
+                        default:
+                          - string: {text: , font: *awesome}
+                          - string: {text: "{ssid}"}
+
+                        conditions:
+                          ipv4 == "":
+                            - string: {text: , font: *awesome, foreground: ffffff66}
+                            - string: {text: "{ssid}", foreground: ffffff66}
     - backlight:
         name: amdgpu_bl0
         content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]

@@ -47,8 +47,8 @@ assign [class="(?i)steam"] $wb05
 
 default_dim_inactive 0.05
 
-corner_radius 5
-smart_corner_radius disable
+#corner_radius 5
+#smart_corner_radius disable
 
 shadows enable
 shadows_on_csd enable
