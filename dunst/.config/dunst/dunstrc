@@ -40,7 +40,7 @@
     width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = (0, 300)
 
     # Position the notification in the top right corner
     origin = top-right
@@ -73,7 +73,8 @@
     # Set the maximum width for the progress bar
     progress_bar_max_width = 300
 
-	progress_bar_corners = 5
+	progress_bar_corner_radius = 0
+	progress_bar_corners = none
 
 
     # Show how many messages are currently hidden (because of
