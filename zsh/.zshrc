@@ -64,6 +64,15 @@ bindkey "^[[B" down-line-or-beginning-search # Down
 bindkey '\eOA' up-line-or-beginning-search # or ^[OA
 bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 
+# Always invalidate $PATH autocomplete cache
+# -> newly installed applications will have autocomplete immediatly
+# SOURCE: https://unix.stackexchange.com/questions/2179/rebuild-auto-complete-index-or-whatever-its-called-and-binaries-in-path-cach
+#
+# ATTENTION: do not use this, if $PATH is not local only
+# 	(for performance reasons)
+
+zstyle ":completion:*:commands" rehash 1
+
 # SOURCE COMMON CONFIGURATION #
 if [ -f "$HOME/.rc" ] ; then
 	source "$HOME/.rc"
