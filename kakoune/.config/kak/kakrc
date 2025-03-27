@@ -172,39 +172,46 @@ hook global BufSetOption filetype=go %{
 # PLUGINS #
 ###########
 
-# use plug.kak
-source "%val{config}/plugins/plug.kak/rc/plug.kak"
-plug "andreyorst/plug.kak" noload
+# use kak-bundle
+evaluate-commands %sh{
+  # We're assuming the default bundle_path here...
+  plugins="$kak_config/bundle"
+  mkdir -p "$plugins"
+  [ ! -e "$plugins/kak-bundle" ] && \
+    git clone -q https://codeberg.org/jdugan6240/kak-bundle "$plugins/kak-bundle"
+  printf "%s\n" "source '$plugins/kak-bundle/rc/kak-bundle.kak'"
+}
+bundle-noload kak-bundle https://codeberg.org/jdugan6240/kak-bundle
 
-plug "occivink/kakoune-expand"
+bundle kakoune-expand "https://github.com/occivink/kakoune-expand"
 
-plug "delapouite/kakoune-mirror" %{
+bundle kakoune-mirror "https://github.com/delapouite/kakoune-mirror" %{
     # Suggested mapping: use ' to get into mirror mode
     map global normal "'" ': enter-user-mode -lock mirror<ret>'
 }
 
 # clipboard integration
-plug "lePerdu/kakboard" %{
+bundle kakboard "https://github.com/lePerdu/kakboard" %{
     hook global WinCreate .* %{ kakboard-enable }
 }
 
-plug "TeddyDD/kakoune-selenized" domain "GitHub.com" theme
+bundle-theme selenized "https://github.com/TeddyDD/kakoune-selenized"
 
-plug "vbauerster/second-light" domain "GitHub.com" theme
+bundle-theme second-light  "https://github.com/vbauerster/second-light"
 
-plug "AprilArcus/base16-kakoune" domain "GitHub.com" theme
+bundle-theme base16 "https://github.com/AprilArcus/base16-kakoune"
 # setup color
 colorscheme plain
 
-plug "andreyorst/smarttab.kak" %{
+bundle smarttab.kak "https://github.com/andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh) noexpandtab
     hook global WinSetOption filetype=(python|java|html) expandtab
 }
 
-#plug "kak-lsp/kak-lsp" do %{
+#bundle "kak-lsp/kak-lsp" do %{
 #    cargo install --locked --force --path .
 #} # Installed via distribution package management
-eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with plug.kak.
+eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with kak-bundle
 hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
     lsp-enable-window
     lsp-auto-hover-enable
@@ -215,15 +222,15 @@ hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
     set global lsp_auto_highlight_references true
 }
 
-plug "jjk96/kakoune-rainbow"
+bundle kakoune-rainbow "https://github.com/jjk96/kakoune-rainbow"
 
-plug "tmahlburg/kakoune-verilog"
-plug "tmahlburg/kakoune-systemverilog"
+bundle kakoune-verilog "https://github.com/tmahlburg/kakoune-verilog"
+bundle kakoune-systemverilog "https://github.com/tmahlburg/kakoune-systemverilog"
 
-plug "greenfork/active-window.kak"
+bundle active-window.kak "https://github.com/greenfork/active-window.kak"
 
 # called via woc
-plug "ftonneau/wordcount.kak"
+bundle wordcount.kak "https://github.com/ftonneau/wordcount.kak"
 
-plug 'casonadams/insert-indicator'
-plug 'eraserhd/kak-ansi'
+bundle insert-indicator "https://github.com/casonadams/insert-indicator"
+bundle kak-ansi "https://github.com/eraserhd/kak-ansi"
