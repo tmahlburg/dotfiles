@@ -156,8 +156,11 @@ bindgesture swipe:3:left workspace next
 bindgesture swipe:3:up fullscreen toggle
 
 bindgesture hold:3 sticky toggle
+
 bindgesture swipe:4:down kill
 bindgesture swipe:4:up floating toggle
+
+bindgesture hold:4 exec "echo 2 > /tmp/sovpipe"
 
 # lock screen and suspend
 #bindsym Super_L exec loginctl suspend

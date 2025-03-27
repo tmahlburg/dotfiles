@@ -13,7 +13,7 @@
 
 # THEMING #
 set $bg #fbf1c7
-set $black #fbf1c7
+set $black #000000
 set $br_black #928374
 set $white #7c6f64
 set $fg #3c3836
@@ -39,7 +39,7 @@ set $br_cyan #427b58
 set $br_orange #iaf3a03
 
 # clientclass border backgr. text indicator
-client.focused $old_green $old_green $bg $old_green
-client.focused_inactive $gray $gray $bg $gray
-client.unfocused $gray $gray $bg $gray
-client.urgent $red $red $bg $red
+client.focused $old_green $old_green $black $old_green
+client.focused_inactive $gray $gray $black $gray
+client.unfocused $gray $gray $black $gray
+client.urgent $red $red $black $red

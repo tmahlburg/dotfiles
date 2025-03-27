@@ -26,14 +26,15 @@ set $wb10 "10"
 
 # SET TOOLS #
 set $term alacritty
-set $fm "env XDG_CURRENT_DESKTOP=GNOME python3 -m tfm"
+#set $fm "env XDG_CURRENT_DESKTOP=GNOME python3 -m tfm"
+set $fm "pcmanfm-qt"
 set $menu "tofi-run | xargs swaymsg exec --"
 set $dmenu "tofi-drun --prompt-text drun: | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
 # FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-font pango:monospace Italic 14
+font pango:serif Italic 12
 
 output * bg ~/img/background fill
 
