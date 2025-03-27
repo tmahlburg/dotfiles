@@ -41,3 +41,6 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
+
+# setup sov (https://github.com/milgra/sov)
+exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
