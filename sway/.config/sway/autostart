@@ -31,11 +31,6 @@ exec dunst &
 # low battery warning
 exec test $(hostname) = maschine && batsignal -b
 
-# run pipewire
-exec pipewire &
-exec wireplumber &
-exec pipewire-pulse &
-
 # import environment to dbus for screensharing
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 

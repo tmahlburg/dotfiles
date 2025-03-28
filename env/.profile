@@ -53,6 +53,15 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
             onedrive -m --enable-logging >/dev/null &
         fi
     fi
+
+    # run pipewire, if not handled as a dinit user service
+    if ! (test -f "/usr/bin/dinitctl" && dinictl status pipewire > /dev/null)
+    then
+        pipewire &
+        wireplumber &
+        pipewire-pulse &
+    fi
+
 fi
 
 # cli only -> generator
