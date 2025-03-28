@@ -38,8 +38,22 @@ font pango:serif Italic 12
 
 output * bg ~/img/background fill
 
-output DVI-D-1 pos 0 0
-output DP-2 pos 1920 0
+## TODO set by hostname
+# HP X27q
+output DP-2 pos 0 0
+# 144 Hz refresh rates results in significantly less GPU power draw @ idle
+output DP-2 mode 2560x1440@143.973Hz
+output DP-2 adaptive_sync on
+output DP-2 subpixel rgb
+# alternative settings:
+#output DP-2 mode 2560x1440@164.834Hz
+#output DP-2 mode 2560x1440@59.951Hz
+
+# GNR TS902
+output HDMI-A-1 pos 2560 416
+output HDMI-A-1 mode 1280x1024@60.020Hz
+# alternative settings:
+#output HDMI-A-1 mode 1280x1024@75.025Hz
 
 # ----------------------------------------------------------------------------------------
 
