@@ -22,7 +22,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "/usr/share/fonts/TTF/Go-Mono.ttf"
+	font = "Go Mono"
 
 	# Point size of text.
 	font-size = 16
@@ -149,7 +149,7 @@
 #
 	# Width and height of the window. Can be pixels or a percentage.
 	width = 400
-	height = 100
+	height = 102
 
 	# Window background color
 	background-color = #b7b7b7
