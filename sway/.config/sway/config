@@ -33,12 +33,6 @@ set $menu "tofi-run | xargs swaymsg exec --"
 set $dmenu "tofi-drun --prompt-text drun: | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
-# FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
-#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-font pango:serif Italic 14
-
-#output * bg ~/img/background fill
-
 ## TODO set by hostname
 # HP X27q
 output DP-2 pos 0 0
