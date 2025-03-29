@@ -11,6 +11,13 @@
 # ║                                                           ║
 # ╚═══════════════════════════════════════════════════════════╝
 
+# FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
+#font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
+font pango:serif Italic 14
+
+# BACKGROUND #
+output * bg ~/img/background fill
+
 # THEMING #
 set $bg #fbf1c7
 set $black #000000
@@ -38,8 +45,36 @@ set $br_magenta #8f3f71
 set $br_cyan #427b58
 set $br_orange #iaf3a03
 
-# clientclass border backgr. text indicator
-client.focused $old_green $old_green $black $old_green
-client.focused_inactive $gray $gray $black $gray
-client.unfocused $gray $gray $black $gray
-client.urgent $red $red $black $red
+set $unf_title #808080
+set $foc_title $old_green
+set $border #808080
+
+# clientclass 				border 		backgr. 	text 	indicator	child_border
+client.focused              $border     $foc_title  $black  $border     $border
+client.focused_inactive     $border     $unf_title  $black  $border     $border
+client.focused_tab_title    $border     $foc_title  $white  $border     $border
+client.unfocused            $border     $unf_title  $black  $border     $border
+
+# VISUAL SETTINGS #
+
+default_dim_inactive 0.05
+
+#corner_radius 5
+#smart_corner_radius disable
+
+shadows enable
+shadows_on_csd enable
+shadow_blur_radius 1
+shadow_color #000000FF
+shadow_offset 10 10
+
+# GAPS #
+# setup window decoration
+default_border normal 1
+default_floating_border normal 1
+
+gaps inner 10
+gaps outer 0
+
+#smart_gaps on
+#smart_borders no_gaps

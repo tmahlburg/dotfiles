@@ -12,7 +12,7 @@
 # ║                                                 ║
 # ╚═════════════════════════════════════════════════╝
 
-# SET WORKSPACE NAMES
+# SETUP WORKSPACES #
 set $wb01  "1"
 set $wb02  "2"
 set $wb03  "3"
@@ -22,7 +22,8 @@ set $wb06  "6"
 set $wb07  "7"
 set $wb08  "8"
 set $wb09  "9"
-set $wb10 "10"
+
+assign [class="(?i)steam"] $wb05
 
 # SET TOOLS #
 set $term alacritty
@@ -34,14 +35,15 @@ set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
 # FONT CONFIGURATION - PANGO OR BITMAP NOTATION #
 #font -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-font pango:serif Italic 12
+font pango:serif Italic 14
 
-output * bg ~/img/background fill
+#output * bg ~/img/background fill
 
 ## TODO set by hostname
 # HP X27q
 output DP-2 pos 0 0
 # 144 Hz refresh rates results in significantly less GPU power draw @ idle
+# 	~6W vs ~31W
 output DP-2 mode 2560x1440@143.973Hz
 output DP-2 adaptive_sync on
 output DP-2 subpixel rgb
@@ -56,30 +58,6 @@ output HDMI-A-1 mode 1280x1024@60.020Hz
 #output HDMI-A-1 mode 1280x1024@75.025Hz
 
 # ----------------------------------------------------------------------------------------
-
-# PROGRAM SPECIFIC SETTINGS #
-assign [class="(?i)steam"] $wb05
-
-default_dim_inactive 0.05
-
-#corner_radius 5
-#smart_corner_radius disable
-
-shadows enable
-shadows_on_csd enable
-shadow_blur_radius 1
-shadow_color #000000FF
-shadow_offset 10 10
-
-# GAPS #
-# remove window decoration
-default_border pixel 3
-
-gaps inner 10
-gaps outer 0
-
-#smart_gaps on
-#smart_borders no_gaps
 
 # INCLUDES
 include window-rules
