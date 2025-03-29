@@ -13,7 +13,7 @@
 ╚═════════════════════════════════════════════════════════════════════════╝
 </pre>
 
-Dotfiles managed via [stow](https://www.gnu.org/software/stow/), following [this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). They are licensed with the GPLv3.
+Dotfiles managed via [stow](https://www.gnu.org/software/stow/)/[xstow](https://github.com/rspeed/xstow), following [this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). They are licensed under the GPLv3.
 
 ## setup
 
@@ -23,16 +23,15 @@ The dotfiles are configuring three very different systems and depend on a list o
 
 **type**: desktop pc\
 **screens**:
-* DVI-D-1: 2560x1440
-* DP-2: 1280x1024
+* DP-2: 2560x1440@144Hz
+* HDMI-A-1: 1280x1024@60Hz
 
 **cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
 **gpu**: GIGABYTE Radeon RX 6750XT 12GiB Gaming OC\
-**ram**: 16GiB DDR4-3000\
+**ram**: 32GiB DDR4-2667\
 **disk**:
-* 500G NVMe - Windows C: (NTFS) + WSL using [Void Linux Musl](https://github.com/am11/VoidMuslWSL) | /boot (FAT32)
-* 256G SSD - [Void Linux](https://voidlinux.org) / (XFS)
-* 500G HDD - /home (ext4) | 32G SWAP
+* 1T NVMe - Windows C: (NTFS) + WSL using [Chimera Linux](https://github.com/tranzystorekk/ChimeraWSL)
+* 500G NVMe - [Chimera Linux](https://chimera-linux.org) / (bcachefs)
 * 1T HDD - D: (NTFS)
 * BD-RW
 
@@ -43,18 +42,17 @@ The dotfiles are configuring three very different systems and depend on a list o
 **cpu**: AMD Ryzen 7 4800U 8C16T @ 1.8-4.2 GHz\
 **gpu**: AMD Radeon RX Vega 8\
 **ram**: 16GiB LPDDR4X-4266\
-**disk**: 480G NVMe - 1G /boot (FAT32) | 64G [Void Linux](https://voidlinux.org) (XFS) / | 192G /home (ext4) | 220G Windows C: (NTFS)
+**disk**: 480G NVMe - 1G /boot (FAT32) | 184G [Void Linux](https://voidlinux.org) (XFS) / | 192G /home (ext4) | 100G Windows C: (NTFS)
 
 ### generator
 
 **type**: Raspberry Pi 4\
 **screen**: none\
 **cpu**: ARM Cortex-A72 4C4T @ 1.5GHz\
-**gpu**: unused\
 **ram**: 2GiB\
 **disk**:
 * 15G microSD - [Alpine Linux](https://alpinelinux.org) (FAT32)
-* 4T HDD - data (NTFS)
+* 6T HDD over USB 3.0 - data (NTFS)
 
 The different modules have the following dependencies:
 
