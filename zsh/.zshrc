@@ -24,9 +24,10 @@ RPROMPT='%B%F{red}%(?..%?)%f%b %T'
 
 # Lines configured by zsh-newuser-install             ##
 HISTFILE=~/.histfile                                  ##
-HISTSIZE=10000                                        ##
-SAVEHIST=10000                                        ##
-setopt appendhistory autocd                           ##
+HISTSIZE=100000                                       ##
+SAVEHIST=100000                                       ##
+setopt incappendhistory
+setopt autocd
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 unsetopt beep                                         ##
