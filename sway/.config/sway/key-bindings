@@ -165,3 +165,7 @@ bindgesture hold:4 exec "echo 2 > /tmp/sovpipe"
 # lock screen and suspend
 #bindsym Super_L exec loginctl suspend
 bindsym $mod+F10 exec loginctl suspend
+
+# move workspaces to another screen
+bindsym $mod+Alt+Right move workspace output right
+bindsym $mod+Alt+Left move workspace output left
