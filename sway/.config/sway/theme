@@ -51,8 +51,8 @@ set $border #808080
 
 # clientclass 				border 		backgr. 	text 	indicator	child_border
 client.focused              $border     $foc_title  $black  $border     $border
-client.focused_inactive     $border     $unf_title  $black  $border     $border
-client.focused_tab_title    $border     $foc_title  $white  $border     $border
+client.focused_inactive     $border     $gray       $black  $border     $border
+client.focused_tab_title    $border     $gray       $white  $border     $border
 client.unfocused            $border     $unf_title  $black  $border     $border
 
 # VISUAL SETTINGS #
