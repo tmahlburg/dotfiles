@@ -29,7 +29,7 @@ input type:keyboard xkb_numlock enabled
 #seat * hide_cursor 15000
 
 # cursor setup
-set $my_cursor dmz-white
+set $my_cursor HaikuHandRe
 set $my_cursor_size 24
 
 seat seat0 xcursor_theme $my_cursor $my_cursor_size
