@@ -16,7 +16,7 @@
 font pango:serif Italic 14
 
 # BACKGROUND #
-output * bg ~/img/background fill
+output * bg ~/img/background tile
 
 # THEMING #
 set $bg #fbf1c7
