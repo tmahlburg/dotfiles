@@ -42,3 +42,4 @@ mods = "None"
 opacity = 1.0
 padding = { x = 3, y = 3 }
 dynamic_padding = true
+dimensions = { columns = 80, lines = 27 }
