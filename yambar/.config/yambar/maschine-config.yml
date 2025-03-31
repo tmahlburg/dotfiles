@@ -31,6 +31,7 @@ magenta: &magenta d28d8dff
 red: &red cc241dff
 green: &green 98971aff
 yellow: &yellow d79921ff
+darkgray: &darkgray 808080ff
 
 bar:
   monitor: eDP-1
@@ -40,14 +41,14 @@ bar:
   margin: 0
 
   # Default font
-  font: monospace:pixelsize=16
+  font: Serif:pixelsize=16
 
   foreground: *fg
   background: *bg
 
   border:
-    width: 3
-    color: *blue
+    width: 1
+    color: *darkgray
     margin: 10
     top-margin: 0
 

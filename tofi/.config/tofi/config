@@ -22,7 +22,7 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Go Mono"
+	font = "Serif Italic"
 
 	# Point size of text.
 	font-size = 16
@@ -78,26 +78,26 @@
 
 	# Prompt text theme
 	# prompt-color = #FFFFFF
-	prompt-background = #b7b7b7
-	prompt-background-padding = 0
+	prompt-background = #ffffff
+	prompt-background-padding = 0,-1
 	prompt-background-corner-radius = 0
 
 	# Placeholder text theme
 	placeholder-color = #d28d8d
-	placeholder-background = #b7b7b7
-	placeholder-background-padding = 0
-	placeholder-background-corner-radius = 5
+	placeholder-background = #ffffff
+	placeholder-background-padding = 0,-1
+	placeholder-background-corner-radius = 0
 
 	# Input text theme
 	# input-color = #FFFFFF
-	input-background = #b7b7b7
-	input-background-padding = 0
+	input-background = #ffffff
+	input-background-padding = 0,-1
 	input-background-corner-radius = 0
 
 	# Default result text theme
 	# default-result-color = #FFFFFF
-	default-result-background = #b7b7b7
-	default-result-background-padding = 0
+	default-result-background = #96b5b5
+	default-result-background-padding = 0,-1
 	default-result-background-corner-radius = 0
 
 	# Alternate (even-numbered) result text theme
@@ -106,30 +106,30 @@
 	# default-result-* attribute.
 	#
 	# alternate-result-color = #FFFFFF
-	# alternate-result-background = #00000000
-	# alternate-result-background-padding = 0
+	alternate-result-background = #8EACAC
+	alternate-result-background-padding = 0,-1
 	# alternate-result-background-corner-radius = 0
 
 	# Selection text
 	selection-color = #000000
-	selection-background = #96b5b5
-	selection-background-padding = 0
+	selection-background = #d28d8d
+	selection-background-padding = 0,5000
 	selection-background-corner-radius = 0
 
 	# Matching portion of selection text
-	selection-match-color = #d28d8d
+	selection-match-color = #ffffff
 
 #
 ### Text layout
 #
 	# Prompt to display.
-	prompt-text = "run: "
+	prompt-text = ""
 
 	# Extra horizontal padding between prompt and input.
 	prompt-padding = 0
 
 	# Placeholder input text.
-	placeholder-text = "..."
+	placeholder-text = ""
 
 	# Maximum number of results to display.
 	# If 0, tofi will draw as many results as it can fit in the window.
@@ -149,32 +149,32 @@
 #
 	# Width and height of the window. Can be pixels or a percentage.
 	width = 400
-	height = 102
+	height = 125
 
 	# Window background color
-	background-color = #b7b7b7
+	background-color = #96b5b5
 
 	# Width of the border outlines in pixels.
 	outline-width = 2
 
 	# Border outline color
-	outline-color = #96b5b5
+	outline-color = #b7b7b7
 
 	# Width of the border in pixels.
-	border-width = 0
+	border-width = 1
 
 	# Border color
-	border-color = #96b5b5
+	border-color = #808080
 
 	# Radius of window corners in pixels.
 	#corner-radius = 5
 	corner-radius = 0
 
 	# Padding between borders and text. Can be pixels or a percentage.
-	padding-top = 8
-	padding-bottom = 8
-	padding-left = 15
-	padding-right = 15
+	padding-top = 5
+	padding-bottom = 5
+	padding-left = 5
+	padding-right = 5
 
 	# Whether to clip text drawing to be within the specified padding. This
 	# is mostly important for allowing text to be inset from the border,
@@ -214,11 +214,15 @@
 	margin-left = 0
 	margin-right = 0
 
+
 #
 ### Behaviour
 #
 	# Hide the cursor.
 	hide-cursor = false
+
+	text-cursor = true
+	text-cursor-style = bar
 
 	# Sort results by number of usages in run and drun modes.
 	history = true
