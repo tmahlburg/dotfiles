@@ -19,7 +19,7 @@
 # This file contains all commands that should be run by all login shells
 
 # Check if the shell running is ash, and if so, set startup file
-# in $ENV. Works with busybox ash
+# in $ENV.
 if [ "$0" = "-ash" ] || [ "$0" = "dash" ] ; then
      export ENV="$HOME/.ashrc"
 fi

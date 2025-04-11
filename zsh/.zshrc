@@ -74,11 +74,6 @@ bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 
 zstyle ":completion:*:commands" rehash 1
 
-# SOURCE COMMON CONFIGURATION #
-if [ -f "$HOME/.rc" ] ; then
-	source "$HOME/.rc"
-fi
-
 # SET UP KEY BINDINGS ACCORDING TO https://wiki.archlinux.org/index.php/Zsh#Key_bindings
 # create a zkbd compatible hash;
 # to add other keys to this hash, see: man 5 terminfo
@@ -124,3 +119,9 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
+
+# SOURCE COMMON CONFIGURATION #
+if [ -f "$HOME/.rc" ] ; then
+	source "$HOME/.rc"
+fi
+

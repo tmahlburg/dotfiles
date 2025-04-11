@@ -110,9 +110,7 @@ alias rms-index='echo -n "Your Stallman Freedom index is " && echo "scale=2;" $(
 
 alias git-history="git log --oneline --abbrev-commit --all --graph --decorate --color"
 
-alias tb='$EDITOR $XDG_DOCUMENTS_HOME/tagebuch/$(date --rfc-3339=date).md'
-
-alias yt2mp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --'
+alias yt2mp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --'
 
 alias synhi='source-highlight -f esc -o STDOUT -i'
 
@@ -128,15 +126,12 @@ alias grep='grep --color=auto'
 
 alias screenshare='/usr/libexec/xdg-desktop-portal -r && /usr/libexec/xdg-desktop-portal-wlr'
 
-#alias vivaldi-stable='vivaldi-stable --enable-features=VaapiVideoEncoder,VaapiVideoDecodeLinuxGL,UseOzonePlatform --ozone-platform=wayland'
 alias vivaldi-stable='vivaldi-stable --ozone-platform-hint=auto'
 
 alias xdg-open='$HOME/bin/xdg-open'
 
-alias btc='blueman-applet && blueman-manager'
-
-alias itch='$HOME/.itch/itch'
-
 alias tfm='PYTHONPATH=$HOME/src/tfm python -m tfm'
 
 alias wbnu='cp draft.html'
+
+alias count_slurm_cpus='scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | sum'
