@@ -29,13 +29,16 @@ exec sway-audio-idle-inhibit
 exec dunst &
 
 # low battery warning
-exec test $(hostname) = maschine && batsignal -b
+exec batsignal -b
 
 # import environment to dbus for screensharing
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
+
+# desktop icons
+exec_always "pkill xfdesktop ; xfdesktop &"
 
 # setup sov (https://github.com/milgra/sov)
 exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
