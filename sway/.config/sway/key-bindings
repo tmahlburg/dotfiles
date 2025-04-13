@@ -107,7 +107,6 @@ bindsym $mod+6 workspace $wb06
 bindsym $mod+7 workspace $wb07
 bindsym $mod+8 workspace $wb08
 bindsym $mod+9 workspace $wb09
-bindsym $mod+0 workspace $wb10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $wb01
@@ -119,7 +118,6 @@ bindsym $mod+Shift+6 move container to workspace $wb06
 bindsym $mod+Shift+7 move container to workspace $wb07
 bindsym $mod+Shift+8 move container to workspace $wb08
 bindsym $mod+Shift+9 move container to workspace $wb09
-bindsym $mod+Shift+0 move container to workspace $wb10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
