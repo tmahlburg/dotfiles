@@ -1,0 +1,38 @@
+bar {
+	id dp-1
+	output DP-1
+	position bottom
+	gaps 30px 1100px
+	mode hide
+	icon_theme Haiku
+	colors {
+		background $unf_title
+		focused_background $gray
+		statusline $black
+		separator $black
+		#					border	background 	text
+		focused_workspace 	$border $foc_title	$black
+		active_workspace 	$border $gray		$black
+    	inactive_workspace	$border $gray		$black
+	}
+}
+
+bar {
+	id dp-2
+	output DP-2
+	position bottom
+	gaps 30px 460px
+	mode hide
+	icon_theme Haiku
+	colors {
+		background $unf_title
+		focused_background $gray
+		statusline $black
+		separator $black
+		#					border	background 	text
+		focused_workspace 	$border $foc_title	$black
+		active_workspace 	$border $gray		$black
+    	inactive_workspace	$border $gray		$black
+	}
+}
+
