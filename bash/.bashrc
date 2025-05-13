@@ -17,14 +17,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# switch to zsh immediatly if possible
+if [ -f /usr/bin/zsh ] ; then
+	exec /usr/bin/zsh
+fi
+
 # source common environment
-if [ -f "$HOME/.env" ]; then
+if [ -f "$HOME/.env" ] ; then
 	# shellcheck source=/dev/null
 	source "$HOME/.env"
 fi
 
 # source common configuration
-if [ -f "$HOME/.rc" ]; then
+if [ -f "$HOME/.rc" ] ; then
 	source "$HOME/.rc"
 fi
 
@@ -39,3 +44,4 @@ function rightprompt() {
 }
 
 PS1="\[$(tput sc; rightprompt; tput rc)\]\[\e[31m\]$(nonzero_return)\[\e[m\]\u@\h \W \\$ "
+
