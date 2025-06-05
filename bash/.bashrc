@@ -34,14 +34,14 @@ if [ -f "$HOME/.rc" ] ; then
 fi
 
 # BASH PROMPT #
-function nonzero_return() {
-	RETVAL=$?
-	[ $RETVAL -ne 0 ] && echo "[$RETVAL] "
-}
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
+	PS1='\[\e[31m\]${?#0} \[\e[0m\]\A [ssh:\h] \w '
+else
+	PS1='\[\e[31m\]${?#0} \[\e[0m\]\A \w '
+fi
 
-function rightprompt() {
-	printf "%*s" $COLUMNS "$(date +%R)"
-}
-
-PS1="\[$(tput sc; rightprompt; tput rc)\]\[\e[31m\]$(nonzero_return)\[\e[m\]\u@\h \W \\$ "
-
+if [ $(id -u) -eq 0 ] ; then
+	PS1="${PS1}# "
+else
+	PS1="${PS1}$ "
+fi
