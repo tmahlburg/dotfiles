@@ -37,6 +37,9 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
 
+# kde connect
+exec kdeconnectd &
+
 # desktop icons
 exec_always "pkill xfdesktop ; xfdesktop &"
 
