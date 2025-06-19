@@ -11,16 +11,34 @@
 # ║                                                    ║
 # ╚════════════════════════════════════════════════════╝
 
-# THEMING #
-#autoload -Uz promptinit
-#promptinit
+# source /etc/profile if on a bio* machine
+if hostname | grep -q bio ; then
+	source /etc/profile
+fi
 
+# THEMING #
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
 	PROMPT='[ssh:%m] %~ %# '
 else
 	PROMPT='%~ %# '
 fi
 RPROMPT='%B%F{red}%(?..%?)%f%b %T'
+
+# set the terminal emulator title
+# \e]0; ... \a
+# 	escape sequence sets the title of most terminal emulators to ...
+
+# runs before drawing a prompt; zsh-specific
+precmd () {
+	# print - zsh builtin
+	# 	-P  - performs prompt expansion
+	# 	-n  - no new line
+	print -Pn "\e]0;$PROMPT\a"
+}
+# runs before executing a command; zsh-specific
+preexec () {
+	print -Pn "\e]0;$PROMPT - $1\a"
+}
 
 # Lines configured by zsh-newuser-install             ##
 HISTFILE=~/.histfile                                  ##
