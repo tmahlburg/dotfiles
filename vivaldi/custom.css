@@ -1,0 +1,9 @@
+* {
+    font-family: serif;
+    font-style: italic;
+}
+
+#app, #header, #tabbar-wrapper, .tab {
+    font-size: 14px;
+}
+
