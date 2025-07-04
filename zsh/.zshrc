@@ -12,7 +12,7 @@
 # ╚════════════════════════════════════════════════════╝
 
 # source /etc/profile if on a bio* machine
-if hostname | grep -q bio ; then
+if hostname | grep -q -e bio -e hpc ; then
 	source /etc/profile
 fi
 
