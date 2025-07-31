@@ -136,4 +136,4 @@ alias wbnu='cp draft.html'
 
 alias count_slurm_cpus='scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | sum'
 
-alias new_day="$EDITOR ~/doc/work-log/$(date --iso-8601=date)-log.md"
+alias new_day='$EDITOR ~/doc/work-log/$(date --iso-8601=date)-log.md'
