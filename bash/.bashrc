@@ -17,10 +17,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# switch to zsh immediatly if possible
-if [ -f /usr/bin/zsh ] ; then
-	exec /usr/bin/zsh
-fi
 
 # source common environment
 if [ -f "$HOME/.env" ] ; then
