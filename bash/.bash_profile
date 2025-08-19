@@ -27,11 +27,6 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# switch to zsh immediatly if possible
-if [ -f /usr/bin/zsh ] ; then
-	exec /usr/bin/zsh
-fi
-
 # source common commands
 if [ -f "$HOME/.profile" ] ; then
 	source "$HOME"/.profile
