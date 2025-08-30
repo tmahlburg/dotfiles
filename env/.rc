@@ -118,11 +118,14 @@ alias weather='curl -4 wttr.in/Leipzig'
 
 alias h='history | grep'
 
-alias diff='diff --color=auto'
+# only use color if supported
+if ! [ $(uname) = "SunOS" ] && ! [ $(uname) = "OpenBSD" ] ; then
+	alias diff='diff --color=auto'
 
-alias ip='ip -color=auto'
+	alias ip='ip -color=auto'
 
-alias grep='grep --color=auto'
+	alias grep='grep --color=auto'
+fi
 
 alias screenshare='/usr/libexec/xdg-desktop-portal -r && /usr/libexec/xdg-desktop-portal-wlr'
 

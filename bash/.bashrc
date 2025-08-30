@@ -45,3 +45,7 @@ if [ $(id -u) -eq 0 ] ; then
 else
 	PS1="${PS1}$ "
 fi
+
+# source bash completions in OmniOS
+[ -f /usr/share/bash-completion/bash_completion ] && \
+    . /usr/share/bash-completion/bash_completion
