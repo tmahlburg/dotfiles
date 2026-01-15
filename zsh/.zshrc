@@ -12,7 +12,7 @@
 # ╚════════════════════════════════════════════════════╝
 
 # source /etc/profile if on a bio* machine
-if hostname | grep -q -e bio -e hpc ; then
+if hostname | grep -q -e bio -e hpc -e login -e dlce; then
 	source /etc/profile
 fi
 
@@ -87,7 +87,7 @@ bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 # -> newly installed applications will have autocomplete immediatly
 # SOURCE: https://unix.stackexchange.com/questions/2179/rebuild-auto-complete-index-or-whatever-its-called-and-binaries-in-path-cach
 #
-# ATTENTION: do not use this, if $PATH is not local only
+# ATTENTION: do not use this, if $PATH is not local-only
 # 	(for performance reasons)
 
 zstyle ":completion:*:commands" rehash 1
@@ -140,6 +140,6 @@ fi
 
 # SOURCE COMMON CONFIGURATION #
 if [ -f "$HOME/.rc" ] ; then
-	source "$HOME/.rc"
+	time source "$HOME/.rc"
 fi
 
