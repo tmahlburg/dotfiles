@@ -1,0 +1,159 @@
+# ╔═══════════════════════════════════════════════════════════════════════╗
+# ║                                                                       ║
+# ║                                        █████                          ║
+# ║                                       ░░███                           ║
+# ║   █████ ████  ██████   █████████████   ░███████   ██████   ████████   ║
+# ║  ░░███ ░███  ░░░░░███ ░░███░░███░░███  ░███░░███ ░░░░░███ ░░███░░███  ║
+# ║   ░███ ░███   ███████  ░███ ░███ ░███  ░███ ░███  ███████  ░███ ░░░   ║
+# ║   ░███ ░███  ███░░███  ░███ ░███ ░███  ░███ ░███ ███░░███  ░███       ║
+# ║   ░░███████ ░░████████ █████░███ █████ ████████ ░░████████ █████      ║
+# ║    ░░░░░███  ░░░░░░░░ ░░░░░ ░░░ ░░░░░ ░░░░░░░░   ░░░░░░░░ ░░░░░       ║
+# ║    ███ ░███                                                           ║
+# ║   ░░██████                                                            ║
+# ║    ░░░░░░                                                             ║
+# ║                                                                       ║
+# ╚═══════════════════════════════════════════════════════════════════════╝
+
+# Typical laptop setup, with wifi, brightness, battery etc, for
+# i3/Sway.
+
+# For X11/i3, you'll want to replace calls to swaymsg with i3-msg, and
+# the sway-xkb module with the xkb module.
+
+# fonts we'll be re-using here and there
+awesome: &awesome FontAwesome 5 Free:style=solid:size=18
+awesome_brands: &awesome_brands FontAwesome 5 Brands:size=20
+
+bg: &bg b7b7b7ff
+fg: &fg 000000ff
+blue: &blue 96b5b5ff
+magenta: &magenta d28d8dff
+red: &red cc241dff
+green: &green 98971aff
+yellow: &yellow d79921ff
+darkgray: &darkgray 808080ff
+
+bar:
+  monitor: eDP-1
+  height: 40
+  location: bottom
+  spacing: 10
+  margin: 0
+
+  # Default font
+  font: Serif:size=24
+  foreground: *fg
+  background: *bg
+
+  border:
+    width: 1
+    color: *darkgray
+    margin: 20
+    top-margin: 0
+
+  left:
+    - i3:
+        anchors: # Not used (directly) by f00bar; used here to avoid duplication
+          - string: &i3_common {margin: 5, on-click: "swaymsg --quiet workspace {name}"}
+          - string: &default {<<: *i3_common, text: "{name}"}
+          - focused: &focused
+              foreground: *fg
+              deco: {background: {color: *magenta}}
+          - invisible: &invisible {foreground: 000000cc}
+          - urgent: &urgent
+              foreground: *bg
+              deco: {background: {color: *red}}
+        sort: ascending
+        content:
+          "":
+            map:
+              conditions:
+                state == focused:   {string: {<<: [*default, *focused]}}
+                state == unfocused: {string: {<<: *default}}
+                state == invisible: {string: {<<: [*default, *invisible]}}
+                state == urgent:    {string: {<<: [*default, *urgent]}}
+          current:
+            map:
+              left-margin: 7
+              conditions:
+                application == "": {string: {text: "{title}"}}
+              default:
+                list:
+                  spacing: 0
+                  items:
+                    - string: {text: "{application}", max: 15, font: monospace:size=24:slant=italic:weight=bold, foreground: *fg}
+                    - string: {text: ": ", font: monospace:size=24:slant=italic}
+                    - string: {text: "{title}", font: monospace:size=24:slant=italic, max: 80}
+
+  right:
+    - network:
+        poll-interval: 1000
+        content:
+          map:
+            default: {empty: {}}
+            conditions:
+              name == wlp194s0:
+                map:
+                  default: {string: {text: , font: *awesome, foreground: ffffff66}}
+                  conditions:
+                    state == down: {string: {text: , font: *awesome, foreground: ff0000ff}}
+                    state == up:
+                      map:
+                        default:
+                          - string: {text: , font: *awesome}
+                          - string: {text: "{ssid}"}
+
+                        conditions:
+                          ipv4 == "":
+                            - string: {text: , font: *awesome, foreground: ffffff66}
+                            - string: {text: "{ssid}", foreground: ffffff66}
+    - backlight:
+        name: amdgpu_bl0
+        content: [ string: {text: , font: *awesome}, string: {text: "{percent}%"}]
+    - battery:
+        name: BAT0
+        poll-interval: 60000
+        content:
+          map:
+            conditions:
+              state == discharging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: , foreground: *red, font: *awesome}
+                      - string: {text: , foreground: *yellow, font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                - string: {text: "{capacity}% {estimate}"}
+              state == charging:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                      - string: {text: , foreground: *green, font: *awesome}
+                - string: {text: "{capacity}% {estimate}"}
+              state == "not charging":
+                - string: {text: , font: *awesome}
+                - string: {text: "{capacity}%"}
+              state == full:
+                - string: {text: , foreground: *green, font: *awesome}
+                - string: {text: "full"}
+    - clock:
+        time-format: "%H:%M"
+        content:
+          - string: {text: "{date}", right-margin: 5}
+          - string: {text: "{time}", right-margin: 5}
