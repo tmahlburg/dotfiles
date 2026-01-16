@@ -19,30 +19,30 @@ Dotfiles managed via [stow](https://www.gnu.org/software/stow/)/[xstow](https://
 
 The dotfiles are configuring three very different systems and depend on a list of software. The systems are:
 
-### rakete
+### yolanda / saffron
 
 **type**: desktop pc\
 **screens**:
-* DP-2: 2560x1440@144Hz
-* HDMI-A-1: 1280x1024@60Hz
+* DP-1: 2560x1440@144Hz
+* DP-2: 1280x1024@60Hz
 
 **cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
 **gpu**: GIGABYTE Radeon RX 6750XT 12GiB Gaming OC\
-**ram**: 32GiB DDR4-2667\
+**ram**: 32GiB DDR4-3200\
 **disk**:
 * 1T NVMe - Windows C: (NTFS) + WSL using [Chimera Linux](https://github.com/tranzystorekk/ChimeraWSL)
 * 500G NVMe - [Chimera Linux](https://chimera-linux.org) / (bcachefs)
-* 1T HDD - D: (NTFS)
+* 1T HDD - D: / /mnt/shared (NTFS)
 * BD-RW
 
-### maschine
+### mal
 
-**type**: Lenovo Yoga Slim 7\
-**screen**: 1920x1080\
-**cpu**: AMD Ryzen 7 4800U 8C16T @ 1.8-4.2 GHz\
-**gpu**: AMD Radeon RX Vega 8\
+**type**: HP ZenBook 8 G1ak\
+**screen**: 2560x1600\
+**cpu**: AMD Ryzen AI 7 PRO 350 8C16T @ 2-5 GHz\
+**gpu**: AMD Radeon 860M\
 **ram**: 16GiB LPDDR4X-4266\
-**disk**: 480G NVMe - 1G /boot (FAT32) | 184G [Void Linux](https://voidlinux.org) (XFS) / | 192G /home (ext4) | 100G Windows C: (NTFS)
+**disk**: 1T NVMe - 1G /boot (FAT32) | 36G Swap | 200G [Void Linux](https://voidlinux.org) (btrfs) / | 717G /home (ext4)
 
 ### generator
 
