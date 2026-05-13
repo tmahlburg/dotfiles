@@ -12,7 +12,7 @@
 # ╚════════════════════════════════════════════════════╝
 
 # source /etc/profile if on a bio* machine
-if hostname | grep -q -e bio -e hpc -e login -e dlce; then
+if [[ "$HOST" =~ (bio|hpc|login|dlce) ]] ; then
 	source /etc/profile
 fi
 
@@ -68,8 +68,7 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/tillm/.zshrc'
 
 autoload -Uz compinit
-compinit ##
-# End of lines added by compinstall
+compinit -d "/run/user/$UID/zcompdump"
 # Cycle through dotfiles on autocompletion
 _comp_options+=(globdots)
 
@@ -89,8 +88,7 @@ bindkey '\eOB' down-line-or-beginning-search # or ^[OB
 #
 # ATTENTION: do not use this, if $PATH is not local-only
 # 	(for performance reasons)
-
-zstyle ":completion:*:commands" rehash 1
+zstyle ":completion:*" rehash 1
 
 # SET UP KEY BINDINGS ACCORDING TO https://wiki.archlinux.org/index.php/Zsh#Key_bindings
 # create a zkbd compatible hash;
@@ -140,6 +138,5 @@ fi
 
 # SOURCE COMMON CONFIGURATION #
 if [ -f "$HOME/.rc" ] ; then
-	time source "$HOME/.rc"
+	source "$HOME/.rc"
 fi
-
