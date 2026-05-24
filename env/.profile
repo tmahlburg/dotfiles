@@ -58,8 +58,6 @@ if [ "$(hostname)" = "rakete" ] || [ "$(hostname)" = "maschine" ] ; then
     if ! (test -f "/usr/bin/dinitctl" && dinitctl status pipewire > /dev/null)
     then
         pipewire &
-        wireplumber &
-        pipewire-pulse &
     fi
 # cli only -> generator
 elif [ "$(hostname)" = "generator" ] ; then
