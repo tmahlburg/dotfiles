@@ -31,7 +31,6 @@ set $menu "tofi-run | xargs swaymsg exec --"
 set $dmenu "tofi-drun --prompt-text drun: | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
-## TODO set by hostname
 # HP X27q
 output DP-1 {
     pos 0 0
@@ -57,7 +56,8 @@ output "AU Optronics 0xE8B9 Unknown" {
     mode 2560x1600@120.001Hz
 #    mode 2560x1600@60.001Hz
     adaptive_sync on
-    scale 1
+	scale 1.33333333
+	scale_filter nearest
 }
 
 # ----------------------------------------------------------------------------------------

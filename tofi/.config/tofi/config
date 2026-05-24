@@ -148,8 +148,8 @@
 ### Window theming
 #
 	# Width and height of the window. Can be pixels or a percentage.
-	width = 400
-	height = 125
+	width = 20%
+	height = 20%
 
 	# Window background color
 	background-color = #96b5b5

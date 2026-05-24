@@ -27,7 +27,7 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 	if [ -f "$HOME/.wayland-env" ] ; then
 		source "$HOME/.wayland-env"
 		mkdir -p .log
-#		dbus-run-session sway --debug &> .log/sway.log
-		dbus-run-session sway &> .log/sway.log
+		WLR_NO_HARDWARE_CURSORS=1 sway --debug &> .log/sway.log
+#		WLR_NO_HARDWARE_CURSORS=1 sway &> .log/sway.log
 	fi
 fi

@@ -35,4 +35,3 @@ bar {
     	inactive_workspace	$border $gray		$black
 	}
 }
-
