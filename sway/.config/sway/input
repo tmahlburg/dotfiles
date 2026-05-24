@@ -16,7 +16,7 @@
 
 # input configuration
 input * {
-    xkb_layout "de(nodeadkeys)"
+    xkb_layout "de"
     # touchpad
     drag enabled
     drag_lock enabled
