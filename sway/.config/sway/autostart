@@ -12,7 +12,7 @@
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
 # bar
-exec_always "pkill yambar ; yambar --config="$XDG_CONFIG_HOME/yambar/$(hostname)-config.yml" &"
+exec_always "pkill yambar ; yambar --config="$HOME/.config/yambar/$(hostname)-config.yml" &"
 
 # screen filter
 exec gammastep -l 51:12 &
