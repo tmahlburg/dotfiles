@@ -38,11 +38,14 @@ exec dbus-update-activation-environment --systemd --all
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
 
-# kde connect
-exec kdeconnectd &
+# run pipewire
+exec pipewire &
 
-# desktop icons
-exec_always "pkill xfdesktop ; xfdesktop &"
+# run easyeffects
+exec easyeffects --hide-window &
+
+# kde connect
+#exec kdeconnectd &
 
 # setup sov (https://github.com/milgra/sov)
-exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
+#exec rm -f /tmp/sovpipe && mkfifo /tmp/sovpipe && tail -f /tmp/sovpipe | sov -t 500
