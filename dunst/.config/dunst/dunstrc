@@ -213,7 +213,7 @@
 
     # Paths to default icons.
 	enable_recursive_icon_lookup = true
-    icon_theme = Haiku
+    icon_theme = BesotHaiku
 
     ### History ###
 
