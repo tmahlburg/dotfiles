@@ -32,7 +32,8 @@ exec dunst &
 exec batsignal -b
 
 # import environment to dbus for screensharing
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+#exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway QT_QPA_PLATFORMTHEME
+exec dbus-update-activation-environment --systemd --all
 
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
