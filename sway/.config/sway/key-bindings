@@ -36,6 +36,9 @@ bindsym $mod+Return exec $term
 # run the file-manager
 bindsym $mod+y exec $fm
 
+bindsym XF86Display exec wdisplays
+bindsym XF86Assistant exec "vivaldi-stable https://chat-ai.gwdg.de"
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -142,11 +145,17 @@ bindsym $mod+x [urgent=latest] focus
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^[:digit:]]\+//g')
 bindsym --locked XF86AudioLowerVolume exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && dunstify -h string:x-canonical-private-synchronous:audio 'Volume: ' -h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^[:digit:]]\+//g')
 bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && dunstify -h string:x-canonical-private-synchronous:audio 'Volume:' $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED -q && echo "muted" || echo "-h int:value:$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^[:digit:]]\+//g')")
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && dunstify -h string:x-canonical-private-synchronous:audio 'Mic:' $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep MUTED -q && echo "muted" || echo "unmuted")
+
 
 bindsym --locked XF86MonBrightnessUp exec "brightnessctl s +2% > /dev/null"
 bindsym --locked XF86MonBrightnessDown exec "brightnessctl s 2%- > /dev/null"
 
+# audio control
 bindsym --locked XF86AudioPlay exec "playerctl play-pause"
+bindsym --locked XF86AudioPause exec "playerctl play-pause"
+bindsym --locked XF86AudioPrev exec "playerctl previous"
+bindsym --locked XF86AudioNext exec "playerctl next"
 
 # mouse gestures
 bindgesture swipe:3:right workspace prev
@@ -163,6 +172,7 @@ bindgesture hold:4 exec "echo 2 > /tmp/sovpipe"
 # lock screen and suspend
 #bindsym Super_L exec loginctl suspend
 bindsym $mod+F10 exec loginctl suspend
+bindsym XF86Launch8 exec loginctl suspend
 
 # move workspaces to another screen
 bindsym $mod+Alt+Right move workspace output right
