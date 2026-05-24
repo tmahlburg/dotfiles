@@ -24,7 +24,7 @@ set $wb08  "8"
 set $wb09  "9"
 
 # SET TOOLS #
-set $term alacritty
+set $term "alacritty"
 #set $fm "env XDG_CURRENT_DESKTOP=GNOME python3 -m tfm"
 set $fm "pcmanfm-qt"
 set $menu "tofi-run | xargs swaymsg exec --"
@@ -51,6 +51,13 @@ output DP-2 {
     mode 1280x1024@60.020Hz
 # alternative settings:
 #   mode 1280x1024@75.025Hz
+}
+
+output "AU Optronics 0xE8B9 Unknown" {
+    mode 2560x1600@120.001Hz
+#    mode 2560x1600@60.001Hz
+    adaptive_sync on
+    scale 1
 }
 
 # ----------------------------------------------------------------------------------------
