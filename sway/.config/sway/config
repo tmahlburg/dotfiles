@@ -56,8 +56,9 @@ output "AU Optronics 0xE8B9 Unknown" {
     mode 2560x1600@120.001Hz
 #    mode 2560x1600@60.001Hz
     adaptive_sync on
-	scale 1.33333333
-	scale_filter nearest
+    scale 1
+#	scale 1.33333333
+#	scale_filter nearest
 }
 
 # ----------------------------------------------------------------------------------------

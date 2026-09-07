@@ -73,7 +73,7 @@ shadow_offset 10 10
 default_border normal 1
 default_floating_border normal 1
 
-gaps inner 10
+gaps inner 20
 gaps outer 0
 
 #smart_gaps on
