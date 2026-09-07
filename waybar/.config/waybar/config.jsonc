@@ -1,0 +1,211 @@
+{
+  "output": "eDP-1",
+  "layer": "top",
+  "position": "bottom",
+  "height": 40,
+  "spacing": 10,
+
+  "margin": "0 20 20 20",
+
+  "modules-left": [
+    "sway/workspaces",
+    "sway/window"
+  ],
+
+  "modules-center": [
+  ],
+
+  "modules-right": [
+    "mpris",
+    "idle_inhibitor",
+    "network",
+    "backlight",
+    "battery",
+    "tray",
+    "clock"
+  ],
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "sort-by-number": true,
+    "format": "{name}"
+  },
+
+  "sway/window": {
+    "format": "{app_id}: {title}",
+    "max-length": 70,
+    "rewrite": {
+      "^: (.*)$": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon} {title}",
+    "icon-size": 32,
+    "icon-theme": "hicolor",
+    "tooltip-format": "{app_id}\n{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [],
+    "all-outputs": false
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 32,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 32
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 32
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 32
+      }
+    ]
+  },
+
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "format-stopped": "",
+    "dynamic-order": [
+      "title",
+      "artist"
+    ],
+    "dynamic-len": 35,
+    "player-icons": {
+      "default": "",
+      "mpv": "",
+      "vlc": "󰕼",
+      "firefox": "",
+      "vivaldi": ""
+    },
+    "status-icons": {
+      "paused": "",
+      "playing": "",
+      "stopped": ""
+    },
+    "ignored-players": []
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": " off",
+    "format-off": " off",
+    "format-on": " on",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "blueman-manager"
+  },
+
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-muted": " muted",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol-qt"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip-format-activated": "Idle inhibitor active",
+    "tooltip-format-deactivated": "Idle inhibitor inactive"
+  },
+
+  "network": {
+    "interface": "wlp194s0",
+    "interval": 1,
+
+    "format-wifi": " {essid}",
+    "format-linked": " {essid}",
+    "format-disconnected": "",
+    "format-disabled": "",
+    "format-ethernet": "",
+
+    "tooltip-format-wifi": "{ifname}: {essid}\n{ipaddr}/{cidr}\nSignal: {signalStrength}%",
+    "tooltip-format-linked": "{ifname}: linked, no address",
+    "tooltip-format-disconnected": "{ifname}: disconnected"
+  },
+
+  "backlight": {
+    "device": "amdgpu_bl0",
+    "format": " {percent}%"
+  },
+
+  "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+
+    "format": "{icon} {capacity}% {time}",
+    "format-charging": "{icon} {capacity}% {time}",
+    "format-plugged": " {capacity}%",
+    "format-full": " full",
+
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+
+    "tooltip-format": "{capacity}%\n{time}"
+  },
+
+  "tray": {
+    "icon-size": 32,
+    "spacing": 6
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": "{:%Y-%m-%d  %H:%M}",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  }
+}
+
