@@ -20,7 +20,7 @@
 
 # Check if the shell running is ash, and if so, set startup file
 # in $ENV.
-if [ "$0" = "-ash" ] || [ "$0" = "dash" ] ; then
+if [ "$0" = "-ash" ] || [ "$0" = "dash" ] || [ "$0" = "-sh" ] ; then
      export ENV="$HOME/.ashrc"
 fi
 
