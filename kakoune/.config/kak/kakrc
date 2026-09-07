@@ -41,14 +41,14 @@ hook global WinCreate .* %{
 
 
 hook global BufWritePost .* %{
-    git update-diff
+#    git update-diff
 }
 
 # autocomplete using tab key
-hook global InsertCompletionShow .* %{ map window insert <tab> <c-n> }
-hook global InsertCompletionShow .* %{ map window insert <s-tab> <c-p> }
-hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n> }
-hook global InsertCompletionHide .* %{ unmap window insert <s-tab> <c-p> }
+#hook global InsertCompletionShow .* %{ map window insert <tab> <c-n> }
+#hook global InsertCompletionShow .* %{ map window insert <s-tab> <c-p> }
+#hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n> }
+#hook global InsertCompletionHide .* %{ unmap window insert <s-tab> <c-p> }
 
 # always remove trailing whitespace
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
@@ -110,8 +110,8 @@ hook global BufSetOption filetype=html %{
     set buffer tabstop 2
 	set buffer disabled_hooks .*-indent
     hook buffer BufWritePost .* %{ lint }
-    hook buffer InsertEnd .* %{ lint }
-    hook buffer NormalIdle .* %{ lint }
+    #hook buffer InsertEnd .* %{ lint }
+    #hook buffer NormalIdle .* %{ lint }
 }
 
 # set up js environment
