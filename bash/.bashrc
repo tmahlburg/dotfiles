@@ -14,7 +14,7 @@
 # ╚══════════════════════════════════════════════════════════════╝
 #
 
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # switch to zsh immediatly if possible
@@ -33,7 +33,7 @@ if [ -f "$HOME/.rc" ] ; then
 	source "$HOME/.rc"
 fi
 
-# BASH PROMPT #
+# prompt
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] || [ -n "$SSH_CONNECTION" ]; then
 	PS1='\[\e[31m\]${?#0} \[\e[0m\]\A [ssh:\h] \w '
 else
@@ -47,5 +47,6 @@ else
 fi
 
 # source bash completions in OmniOS
-[ -f /usr/share/bash-completion/bash_completion ] && \
-    . /usr/share/bash-completion/bash_completion
+if [ -f /usr/share/bash-completion/bash_completion ] ; then
+	source /usr/share/bash-completion/bash_completion
+fi
