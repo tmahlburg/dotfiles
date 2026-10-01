@@ -30,6 +30,7 @@ set $fm "pcmanfm-qt"
 set $menu "tofi-run | xargs swaymsg exec --"
 set $dmenu "tofi-drun --prompt-text drun: | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
+set $browser "vivaldi-stable"
 
 # HP X27q
 output "HP Inc. HP X27q 6CM2071DL0" {

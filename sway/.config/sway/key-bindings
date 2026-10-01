@@ -37,7 +37,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+y exec $fm
 
 bindsym XF86Display exec wdisplays
-bindsym XF86Assistant exec "vivaldi-stable https://chat-ai.gwdg.de"
+bindsym XF86Assistant exec $browser "https://chat-ai.gwdg.de"
 
 # kill focused window
 bindsym $mod+Shift+q kill
