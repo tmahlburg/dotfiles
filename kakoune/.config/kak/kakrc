@@ -34,6 +34,9 @@ set-option global tabstop 4
 # enable "soft" line wrap
 addhl global/ wrap
 
+# enable pasting on middle mouse click
+hook global RawKey <mouse:press:middle:.*> %{ exec !xclip<space>-o<ret> }
+
 # enable git support
 hook global WinCreate .* %{
     git show-diff
@@ -79,8 +82,6 @@ hook global BufSetOption filetype=python %{
     #hook buffer BufWritePost .* %{ lint }
     #hook buffer InsertEnd .* %{ lint }
     #hook buffer NormalIdle .* %{ lint }
-}
-hook global WinSetOption filetype=python %{
     jedi-enable-autocomplete
 }
 
@@ -105,18 +106,13 @@ hook global BufSetOption filetype=markdown %{
 
 # set up html environment
 hook global BufSetOption filetype=html %{
-    set buffer formatcmd "run(){tidy -q -omit -w 80 -utf8 2>/dev/null || true; } && run"
     set buffer lintcmd "tidy -e -omit --gnu-emacs yes --quiet yes 2>&1"
     set buffer tabstop 2
-	set buffer disabled_hooks .*-indent
+    set buffer disabled_hooks .*-indent
     hook buffer BufWritePost .* %{ lint }
     #hook buffer InsertEnd .* %{ lint }
     #hook buffer NormalIdle .* %{ lint }
 }
-
-# set up js environment
-#hook global BufSetOption filetype=javascript %{
-#}
 
 # set up verilog development environment
 hook global BufSetOption filetype=verilog %{
@@ -154,7 +150,7 @@ hook global BufSetOption filetype=latex %{
     set-option buffer formatcmd 'latexindent'
 
     hook bugger BufWritePost .* %{
-#        lint
+        lint
         make
     }
 }
@@ -191,17 +187,10 @@ bundle kakoune-mirror "https://github.com/delapouite/kakoune-mirror" %{
 }
 
 # clipboard integration
-bundle kakboard "https://github.com/lePerdu/kakboard" %{
-    hook global WinCreate .* %{ kakboard-enable }
+bundle clipb "https://github.com/NNBnh/clipb.kak" %{
+	clipb-detect
+	clipb-enable
 }
-
-bundle-theme selenized "https://github.com/TeddyDD/kakoune-selenized"
-
-bundle-theme second-light  "https://github.com/vbauerster/second-light"
-
-bundle-theme base16 "https://github.com/AprilArcus/base16-kakoune"
-# setup color
-colorscheme plain
 
 bundle smarttab.kak "https://github.com/andreyorst/smarttab.kak" %{
     hook global WinSetOption filetype=(c|verilog|sh) noexpandtab
@@ -234,3 +223,11 @@ bundle wordcount.kak "https://github.com/ftonneau/wordcount.kak"
 
 bundle insert-indicator "https://github.com/casonadams/insert-indicator"
 bundle kak-ansi "https://github.com/eraserhd/kak-ansi"
+
+bundle-theme selenized "https://github.com/TeddyDD/kakoune-selenized"
+
+bundle-theme second-light  "https://github.com/vbauerster/second-light"
+
+bundle-theme base16 "https://github.com/AprilArcus/base16-kakoune"
+# setup color
+colorscheme plain
