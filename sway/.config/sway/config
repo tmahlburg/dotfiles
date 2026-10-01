@@ -32,7 +32,7 @@ set $dmenu "tofi-drun --prompt-text drun: | xargs swaymsg exec --"
 set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 
 # HP X27q
-output DP-1 {
+output "HP Inc. HP X27q 6CM2071DL0" {
     pos 0 0
 # 144 Hz refresh rates results in significantly less GPU power draw @ idle
 #   ~6W vs ~31W
@@ -45,7 +45,7 @@ output DP-1 {
 }
 
 # HP E190i
-output DP-2 {
+output "Hewlett Packard HP E190i CN46130N2Q" {
     pos 2560 416
     mode 1280x1024@60.020Hz
 # alternative settings:
