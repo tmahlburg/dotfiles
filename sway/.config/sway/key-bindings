@@ -42,7 +42,7 @@ bindsym XF86Assistant exec $browser "https://chat-ai.gwdg.de"
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start bemenu
+# start menu
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+d exec $dmenu
 
