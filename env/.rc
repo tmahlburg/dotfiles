@@ -60,31 +60,27 @@ mkalias () {
 #       project directory
 PRJ_DIR="$HOME/prj_dir"
 prj () {
-	local prj
-	prj="$1"
-	if [ "$prj" = ls ] ; then
+	_rc_prj="$1"
+	if [ "$_rc_prj" = ls ] ; then
 		cat "$PRJ_DIR"
 	else
-		local prj_loc
-		prj_loc=$(grep "$prj" "$PRJ_DIR" | cut -d ' ' -f 2)
-		eval "prj_loc=$prj_loc"
+		_rc_prj_loc=$(grep "$_rc_prj" "$PRJ_DIR" | cut -d ' ' -f 2)
+		eval "_rc_prj_loc=$_rc_prj_loc"
 
-		cd "$prj_loc" || echo "ERROR: $prj_loc does not exist!"
+		cd "$_rc_prj_loc" || echo "ERROR: $_rc_prj_loc does not exist!"
 	fi
 }
 
 # enables battery conservation mode on lenovo yoga slim 7
 # if it is enabled, battery won't charge above 60%
 toggle_bat_conservation () {
-	local switch
-	switch="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
-	local current
-	current=$(cat "$switch")
+	_rc_switch="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+	_rc_current=$(cat "$switch")
 
-	if [ "$current" = "0" ] ; then
-		echo "1" | "$PRIV_ESC" tee "$switch"
-	elif [ "$current" = "1" ] ; then
-		echo "0" | "$PRIV_ESC" tee "$switch"
+	if [ "$_rc_current" = "0" ] ; then
+		echo "1" | "$PRIV_ESC" tee "$_rc_switch"
+	elif [ "$_rc_current" = "1" ] ; then
+		echo "0" | "$PRIV_ESC" tee "$_rc_switch"
 	fi
 }
 
