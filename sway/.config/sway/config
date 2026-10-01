@@ -34,14 +34,12 @@ set $scrot "grim ~/img/$(date '+%Y%m%d-%H%M%S').png"
 # HP X27q
 output "HP Inc. HP X27q 6CM2071DL0" {
     pos 0 0
-# 144 Hz refresh rates results in significantly less GPU power draw @ idle
-#   ~6W vs ~31W
-    mode 2560x1440@143.973Hz
+    mode 2560x1440@164.834Hz
     adaptive_sync on
     subpixel rgb
 # alternative settings:
-#   mode 2560x1440@164.834Hz
 #   mode 2560x1440@59.951Hz
+#	mode 2560x1440@143.973Hz
 }
 
 # HP E190i
