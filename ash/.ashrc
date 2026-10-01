@@ -16,7 +16,6 @@
 
 # source common environment
 if [ -f "$HOME/.env" ]; then
-	# shellcheck source=/dev/null
 	. "$HOME/.env"
 fi
 
