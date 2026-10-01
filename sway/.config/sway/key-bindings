@@ -124,12 +124,8 @@ bindsym $mod+Shift+9 move container to workspace $wb09
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# exit i3 (logs you out of your X session)
+# exit sway
 bindsym $mod+Shift+e exec "swaynagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
-
-# move workspace around monitors
-bindsym $mod+comma move workspace to output right
-bindsym $mod+period move workspace to output left
 
 bindsym $mod+r mode "resize"
 
