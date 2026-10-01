@@ -18,8 +18,12 @@
 #
 
 # source common commands
-if [ -f "$HOME/.profile" ]; then
+if [ -f "$HOME/.profile" ] ; then
 	source "$HOME/.profile"
+fi
+
+if [ "$(hostname)" = "mal" ] ; then
+	WLR_NO_HARDWARE_CURSORS=1
 fi
 
 # autostart sway
@@ -27,7 +31,7 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 	if [ -f "$HOME/.wayland-env" ] ; then
 		source "$HOME/.wayland-env"
 		mkdir -p .log
-		WLR_NO_HARDWARE_CURSORS=1 sway --debug &> .log/sway.log
-#		WLR_NO_HARDWARE_CURSORS=1 sway &> .log/sway.log
+		# sway --debug &> .log/sway.log
+		sway &> .log/sway.log
 	fi
 fi
