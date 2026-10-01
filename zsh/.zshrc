@@ -37,7 +37,11 @@ precmd () {
 }
 # runs before executing a command; zsh-specific
 preexec () {
-	print -Pn "\e]0;$PROMPT - $1\a"
+    # these acrobatics are done to stop print -P from accidentally
+    # evaluating $1 (the actual command line)
+	local prmpt
+	prmpt="$(print -Pn $PROMPT)"
+	print -n "\e]0;$prmpt - $1\a"
 }
 
 # Lines configured by zsh-newuser-install             ##
