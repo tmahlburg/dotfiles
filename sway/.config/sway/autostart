@@ -12,8 +12,10 @@
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
 # bar
-#exec_always "pkill yambar ; yambar --config="$HOME/.config/yambar/$(hostname)-config.yml" &"
-exec_always pkill waybar ; waybar &
+exec_always "pkill waybar ; waybar &"
+
+# desktop widget
+exec_always "pkill nwg-wrapper ; nwg-wrapper -s ~/bin/wonky.sh -p left -a start -ml 50 -mt 50 -mb 50 -r 1000 -j center -o DP-2 &"
 
 # screen filter
 exec gammastep -l 51.3:12.4 &
