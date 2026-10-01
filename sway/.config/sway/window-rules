@@ -28,8 +28,5 @@ for_window [title=".*"] floating enable
 for_window [class=".*"] floating enable
 for_window [instance=".*"] floating enable
 
-#layer_effects "panel" corner_radius 5
-#layer_effects "launcher" corner_radius 5; shadows enable; shadows_blur_radius 1; shadows_color #000000FF; shadow_offset 10 10
 layer_effects "launcher" shadows enable; shadow_blur_radius 1; shadows_color #000000FF; shadow_offset 10 10
-#layer_effects "notifications" corner_radius 5; shadows enable; shadows_blur_radius 1; shadows_color #000000FF; shadow_offset 10 10
 layer_effects "notifications" shadows enable; shadow_blur_radius 1; shadows_color #000000FF; shadow_offset 10 10
