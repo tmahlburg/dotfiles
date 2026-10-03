@@ -23,7 +23,8 @@ if [ -f "$HOME/.profile" ] ; then
 fi
 
 if [ "$(hostname)" = "mal" ] ; then
-	WLR_NO_HARDWARE_CURSORS=1
+	export WLR_NO_HARDWARE_CURSORS=1
+	pipewire &
 fi
 
 # autostart sway

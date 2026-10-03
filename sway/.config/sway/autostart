@@ -41,9 +41,6 @@ exec dbus-update-activation-environment --systemd --all
 # run pcmanfm-qt in daemon mode
 exec pcmanfm-qt -d
 
-# run pipewire
-exec pipewire &
-
 # run easyeffects
 exec easyeffects --hide-window &
 
