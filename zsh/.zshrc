@@ -72,7 +72,7 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/tillm/.zshrc'
 
 autoload -Uz compinit
-compinit -d "/run/user/$UID/zcompdump"
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 # Cycle through dotfiles on autocompletion
 _comp_options+=(globdots)
 
