@@ -75,7 +75,7 @@ prj () {
 # if it is enabled, battery won't charge above 60%
 toggle_bat_conservation () {
 	_rc_switch="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
-	_rc_current=$(cat "$switch")
+	_rc_current=$(cat "$_rc_switch")
 
 	if [ "$_rc_current" = "0" ] ; then
 		echo "1" | "$PRIV_ESC" tee "$_rc_switch"
@@ -130,6 +130,6 @@ alias xdg-open='$HOME/bin/xdg-open'
 
 alias tfm='PYTHONPATH=$HOME/src/tfm python -m tfm'
 
-alias count_slurm_cpus='scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | sum'
+alias count_slurm_cpus='scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | awk '{s+=$1} END {print s}''
 
 alias slurm_usage='sshare -a -A genetics | (sed -u 3q ; sort -n -r -k 5)'
