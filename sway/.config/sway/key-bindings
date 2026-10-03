@@ -125,14 +125,14 @@ bindsym $mod+Shift+9 move container to workspace $wb09
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # exit sway
-bindsym $mod+Shift+e exec "swaynagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your wayland session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
 bindsym $mod+r mode "resize"
 
 # screenshots
-bindsym $mod+p exec grim
-bindsym $mod+Print exec grim
-bindsym $mod+Shift+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+p exec $scrot
+bindsym $mod+Print exec $scrot
+bindsym $mod+Shift+Print exec $scrot -g "$(slurp)" - | wl-copy
 
 # go to focused windows
 bindsym $mod+x [urgent=latest] focus
