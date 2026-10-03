@@ -31,7 +31,7 @@ set $old_green #96b5b5
 
 set $red #cc241d
 set $green #98971a
-set $yellow #79921
+set $yellow #d79921
 set $blue #458588
 set $magenta #b16286
 set $cyan #689d6a
