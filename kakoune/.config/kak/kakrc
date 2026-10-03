@@ -35,7 +35,7 @@ set-option global tabstop 4
 addhl global/ wrap
 
 # enable pasting on middle mouse click
-hook global RawKey <mouse:press:middle:.*> %{ exec !xclip<space>-o<ret> }
+hook global RawKey <mouse:press:middle:.*> %{ exec !wl-paste<space>-o<ret> }
 
 # enable git support
 hook global WinCreate .* %{
@@ -149,7 +149,7 @@ hook global BufSetOption filetype=latex %{
     set-option buffer lintcmd 'chklatex %f:%l:%c: %k: %n %m'
     set-option buffer formatcmd 'latexindent'
 
-    hook bugger BufWritePost .* %{
+    hook buffer BufWritePost .* %{
         lint
         make
     }
