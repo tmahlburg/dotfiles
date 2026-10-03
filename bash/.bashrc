@@ -18,8 +18,12 @@
 [[ $- != *i* ]] && return
 
 # switch to zsh immediatly if possible
-if [ -f /usr/bin/zsh ] ; then
-	exec /usr/bin/zsh
+if command -v zsh ; then
+	if shopt -q login_shell ; then
+		exec zsh -l
+	else
+		exec zsh
+	fi
 fi
 
 # source common environment
