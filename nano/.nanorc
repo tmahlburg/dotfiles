@@ -223,11 +223,11 @@ set numbercolor cyan
 set keycolor cyan
 set functioncolor green
 ## In root's .nanorc you might want to use:
-set titlecolor brightwhite,red
-set statuscolor brightwhite,red
-set numbercolor magenta
-set keycolor brightmagenta
-set functioncolor magenta
+#set titlecolor brightwhite,red
+#set statuscolor brightwhite,red
+#set numbercolor magenta
+#set keycolor brightmagenta
+#set functioncolor magenta
 
 
 ## Setup of syntax coloring.
