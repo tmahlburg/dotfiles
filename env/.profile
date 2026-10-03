@@ -18,9 +18,11 @@
 #
 # This file contains all commands that should be run by all login shells
 
-# Check if the shell running is ash, and if so, set startup file in $ENV.
+# Check if the shell running is ash or ksh, and if so, set startup file in $ENV
 if [ "$0" = "-ash" ] || [ "$0" = "dash" ] || [ "$0" = "-sh" ] ; then
-     export ENV="$HOME/.ashrc"
+    export ENV="$HOME/.ashrc"
+elif [ "$0" = "ksh" ] || [ "$0" = "-ksh" ] ; then
+    export ENV="$HOME/.kshrc"
 fi
 
 # machine specific settings
@@ -33,7 +35,9 @@ if [ "$(hostname)" = "yolanda" ] ; then
     # mount ~/.var to /var/local/$USER/var
     # needs this in the /etc/fstab, but with manually expanded $USER vars:
     # /var/local/$USER/var	/home/$USER/.var	none	bind,noauto,user,exec	0	0
-    mount $HOME/.var
+    if ! mountpoint -q "$HOME/.var"; then
+        mount $HOME/.var
+    fi
 fi
 
 # set XDG_CONFIG_HOME
@@ -53,7 +57,7 @@ fi
 
 # autostart ssh-agent
 # source: https://wiki.archlinux.org/index.php/SSH_keys#ssh-agent
-if ! pgrep ssh-agent > /dev/null; then
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > "/tmp/ssh-agent-$USER.env"
     if test -z "$SSH_AUTH_SOCK"; then
         . "/tmp/ssh-agent-$USER.env" >/dev/null
