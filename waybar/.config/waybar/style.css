@@ -9,8 +9,8 @@
 window#waybar {
     background-color: #c0c0c0;
     color: #000000;
-    border-top: 2px solid #ffffff;
-    border-left: 2px solid #ffffff;
+    border-top: 2px solid #fafafa;
+    border-left: 2px solid #fafafa;
     border-bottom: 2px solid #808080;
     border-right: 2px solid #808080;
 }
@@ -50,7 +50,7 @@ window#waybar {
 #window,
 #tray,
 #clock {
-    background-color: #ffffff;
+    background-color: #d8d8d8;
     color: #000000;
     border-top: 2px solid #808080;
     border-left: 2px solid #808080;
