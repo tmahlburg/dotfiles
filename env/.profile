@@ -19,11 +19,10 @@
 # This file contains all commands that should be run by all login shells
 
 # Check if the shell running is ash or ksh, and if so, set startup file in $ENV
-if [ "$0" = "-ash" ] || [ "$0" = "dash" ] || [ "$0" = "-sh" ] ; then
-    export ENV="$HOME/.ashrc"
-elif [ "$0" = "ksh" ] || [ "$0" = "-ksh" ] ; then
-    export ENV="$HOME/.kshrc"
-fi
+case "$0" in
+	ash|-ash|dash|-dash|sh|-sh ) export ENV="$HOME/.ashrc" ;;
+	ksh|-ksh ) export ENV="$HOME/.ashrc" ;;
+esac
 
 # machine specific settings
 # YOLANDA
