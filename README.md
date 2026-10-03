@@ -13,162 +13,102 @@
 ╚═════════════════════════════════════════════════════════════════════════╝
 </pre>
 
-Dotfiles managed via [stow](https://www.gnu.org/software/stow/)/[xstow](https://github.com/rspeed/xstow), following [this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html). They are licensed under the GPLv3.
+Dotfiles managed via [stow](https://www.gnu.org/software/stow/)/
+[xstow](https://github.com/rspeed/xstow), following
+[this guide](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html).
+They are licensed under the terms of the GPLv3.
 
 ## setup
 
-The dotfiles are configuring three very different systems and depend on a list of software. The systems are:
+The dotfiles are configuring a few different systems and depend on a list of software. The systems are:
 
-### yolanda / saffron
+### yolanda / saffron (desktop)
 
-**type**: desktop pc\
+**type**: Fractal Design Pop Mini Air RGB\
 **screens**:
-* DP-1: 2560x1440@144Hz
-* DP-2: 1280x1024@60Hz
+* DP-2: 2560x1440@165Hz
+* DP-3: 1280x1024@60Hz
 
-**cpu**: AMD Ryzen 7 5700X 8C16T @ 3.4-4.6 GHz\
-**gpu**: GIGABYTE Radeon RX 6750XT 12GiB Gaming OC\
-**ram**: 32GiB DDR4-3200\
+**cpu**: AMD Ryzen 5 9600X 6C12T @ 3.9-5.4 GHz\
+**gpu**: PowerColor Reaper Radeon RX 9070XT 16GiB \
+**ram**: 32GiB DDR5-6000 CL36\
 **disk**:
-* 1T NVMe - Windows C: (NTFS) + WSL using [Chimera Linux](https://github.com/tranzystorekk/ChimeraWSL)
-* 500G NVMe - [Chimera Linux](https://chimera-linux.org) / (bcachefs)
-* 1T HDD - D: / /mnt/shared (NTFS)
+* 1T NVMe - Windows C: (NTFS)
+* 500G NVMe - [Chimera Linux](https://chimera-linux.org) / (ext4)
+* 3T SATA HDD @ 7.2k RPM - D: / /mnt/shared (NTFS)
 * BD-RW
 
-### mal
+### mal (laptop)
 
 **type**: HP ZenBook 8 G1ak\
-**screen**: 2560x1600\
+**screen**: 2560x1600@120Hz\
 **cpu**: AMD Ryzen AI 7 PRO 350 8C16T @ 2-5 GHz\
 **gpu**: AMD Radeon 860M\
-**ram**: 16GiB LPDDR4X-4266\
-**disk**: 1T NVMe - 1G /boot (FAT32) | 36G Swap | 200G [Void Linux](https://voidlinux.org) (btrfs) / | 717G /home (ext4)
+**ram**: 32GiB LPDDR4X-4266\
+**disk**: 1T NVMe - 1G /boot (FAT32) | 36G Swap | 200G [Void Linux](https://voidlinux.org) / (btrfs) | 717G /home (ext4)
 
-### generator
+### serenity (nas)
 
-**type**: Raspberry Pi 4\
+**type**: Jonsbo N2\
 **screen**: none\
-**cpu**: ARM Cortex-A72 4C4T @ 1.5GHz\
-**ram**: 2GiB\
+**cpu**: AMD Ryzen 7 5700X 8C16T @ 3.5-4.6GHz \
+**ram**: 32GiB DDR4-2400 ECC\
 **disk**:
-* 15G microSD - [Alpine Linux](https://alpinelinux.org) (FAT32)
-* 6T HDD over USB 3.0 - data (NTFS)
+* 128G NVMe - [FreeBSD](https://www.freebsd.org) / (ZFS)
+* 3*8T SATA HDDs @ 5.4k RPM - /cargo (RAID-Z1)
+* 500G SATA SSD - /stash (ZFS)
+
+### inara (router)
+
+**type**: Fujitsu Futro S920\
+**screen**: none\
+**cpu**: AMD GX-222GC 1C2T @ 2.2-2.4 GHz\
+**gpu**: AMD Radeon R5E\
+**ram**: 8GiB DD3-1600\
+**disk**: 256G mSATA SSD - [OpenBSD](https://www.openbsd.org/index.html)
+
+### jayne (backup)
+
+**type**: AeroCool AeroCube M40\
+**screen**: none\
+**cpu**: AMD Ryzen 3 2200G 4C4T @ 3.5-3.7 GHz\
+**gpu**: AMD Radeon Vega 8\
+**ram**: 16GiB DDR4-3000\
+**disk**:
+* 128G NVMe - [OmnisOS CE](https://omnios.org) / (ZFS)
+* 2*6T SATA HDDs @ 7.2k RPM - /vault (ZFS mirror)
+
+### bionb161 (work laptop)
+
+**type**: MacBook Pro 14\
+**screen**: 3024x1964@120Hz\
+**cpu**: Apple M4 Pro 12C(8P4E)12T\
+**gpu**: Apple M4 Pro\
+**ram**: 24GiB
+**disk**: 1TiB SSD - MacOS /
 
 The different modules have the following dependencies:
 
-### [alacritty](https://github.com/alacritty/alacritty)
-
-* [xdg-utils](https://www.freedesktop.org/wiki/Software/xdg-utils/)
-
 ### [ash](https://busybox.net)
 
-* relies on the ```env``` module of this repository
+* relies on ```env```
 
 ### [bash](https://www.gnu.org/software/bash/)
 
-* relies on the ```env``` module of this repository
+* relies on ```env```
 
 ### env - shell independent configuration
 
-* [alpine-sysinfo](https://github.com/tmahlburg/bin/blob/main/alpine-sysinfo) - autostart
-* [sway](https://swaywm.org) - autostart
-* [ssh-agent](https://www.openssh.com) - autostart
-* [tar](https://www.gnu.org/software/tar/tar.html) - function
-* [bunzip2](https://sourceware.org/bzip2/) - function
-* [unrar](https://www.rarlab.com/rar_add.htm) - function
-* [pigz](https://zlib.net/pigz/) - function
-* [unzip](http://infozip.sourceforge.net) - function
-* [uncompress](https://www.gzip.org) - function
-* [7z](http://p7zip.sourceforge.net) - function
-* [xz](https://tukaani.org/xz/format.html) - function
-* [markdown](http://www.pell.portland.or.us/~orc/Code/discount/) - function
-* [doas](https://github.com/Duncaen/OpenDoas) - function
-* [pacman](https://archlinux.org/pacman/) - alias
-* [git](https://git-scm.com) - alias
-* [youtube-dl](https://youtube-dl.org) - alias
-* [source-highlight](https://www.gnu.org/software/src-highlite/) - alias
-* [vivado](https://www.xilinx.com/products/design-tools/vivado.html] - alias
-* [curl](https://curl.se) - alias
-* [xdg-dekstop-portal](https://github.com/flatpak/xdg-desktop-portal) - alias
-* [xdg-desktop-portal-wlr](https://github.com/emersion/xdg-desktop-portal-wlr)
-* [itch](https://itch.io/app) - alias
-* [tfm](https://github.com/tmahlburg/tfm) - alias
-* [elinks](http://elinks.or.cz) - as $TUI_BROWSER
-* [less](http://www.greenwoodsoftware.com/less/) - as $PAGER
-* [kakoune](https://kakoune.org) - as $EDITOR
-* [go](https://golang.org) - set $GOPATH
+* references the ```wayland``` module
 
-* references the ```wayland``` module in this repository
+### ksh
 
-### fonts
-
-* [DejaVu](https://dejavu-fonts.github.io)
-* [Noto](https://www.google.com/get/noto/)
-* [FontAwesome](https://fontawesome.com)
-* [Go Mono](https://go.dev/blog/go-fonts)
-
-### [kakoune](https://kakoune.org)
-
-* [plug.kak](https://github.com/andreyorst/plug.kak)
-* [shellcheck](https://www.shellcheck.net)
-* [autopep8](https://pypi.org/project/autopep8/)
-* [flake8](https://flake8.pycqa.org)
-* [indent](https://www.gnu.org/software/indent/)
-* [clang](https://clang.llvm.org)
-* [verilog_lint](https://github.com/tmahlburg/bin/blob/main/verilog_lint)
-* [iverilog](http://iverilog.icarus.com)
-* [tex live](https://www.tug.org/texlive/)
-* [go](https://golang.org)
-* [python-language-server](https://github.com/palantir/python-language-server)
-* [clangd](https://clangd.llvm.org)
-* [gopls](https://pkg.go.dev/golang.org/x/tools/gopls)
-* [texlab](https://github.com/latex-lsp/texlab)
-
-### [mpv](https://mpv.io)
-
-* [vaapi](https://www.freedesktop.org/wiki/Software/vaapi/)
-
-### [nano](https://www.nano-editor.org)
-
-* none
-
-### [onedrive](https://abraunegg.github.io)
-
-* none
+* relies on ```env```
 
 ### [sway](https://swaywm.org)
 
-* [alacritty](https://github.com/alacritty/alacritty) - key binding
-* [pcmanfm-qt](https://github.com/lxqt/pcmanfm-qt) - key binding
-* [tofi](https://github.com/philj56/tofi) - key binding
-* [grim](https://github.com/emersion/grim) - key binding
-* [pamixer](https://github.com/cdemoulins/pamixer) - key binding
-* [brightnessctl](https://github.com/Hummer12007/brightnessctl) - key binding
-* [steam](https://store.steampowered.com/about/) - setting
-* [yambar](https://codeberg.org/dnkl/yambar) - autostart
-* [gammastep](https://gitlab.com/chinstrap/gammastep) - autostart
-* [swayidle](https://github.com/swaywm/swayidle) - autostart
-* [pipewire](https://pipewire.org) - autostart
-* [pipewire-pulse](https://pipewire.org) - autostart
-* [wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) - autostart
-* references to the ```wayland``` module in this repository
-
-### [wayland](https://wayland.freedesktop.org)
-
-* [sway](https://swaywm.org)
-* [mesa-vaapi](https://mesa3d.org)
-* [mesa-vdpau](https://mesa3d.org)
-* [qt5ct](https://github.com/desktop-app/qt5ct)
-* [qt6ct](https://github.com/trialuser02/qt6ct)
-
-### xdg
-
-* [xdg-user-dirs](https://freedesktop.org/wiki/Software/xdg-user-dirs/)
-
-### [yambar](https://codeberg.org/dnkl/yambar)
-
-* [FontAwesome](https://fontawesome.com)
+* references the ```wayland``` module
 
 ### [zsh](https://www.zsh.org)
 
-* relies on the ```env``` module in this repository
+* relies on ```env``` module
