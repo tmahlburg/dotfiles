@@ -21,7 +21,7 @@
 # Check if the shell running is ash or ksh, and if so, set startup file in $ENV
 case "$0" in
 	ash|-ash|dash|-dash|sh|-sh ) export ENV="$HOME/.ashrc" ;;
-	ksh|-ksh ) export ENV="$HOME/.ashrc" ;;
+	ksh|-ksh ) export ENV="$HOME/.kshrc" ;;
 esac
 
 # machine specific settings
