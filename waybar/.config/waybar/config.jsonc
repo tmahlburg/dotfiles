@@ -214,7 +214,7 @@
 {
     "layer": "bottom",
     "position": "top",
-    "output": ["DP-2"],
+"output": "DP-2",
     "height": 40,
     "spacing": 4,
 
