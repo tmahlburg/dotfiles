@@ -94,6 +94,10 @@ suedit () {
 	fi
 }
 
+count_slurm_cpus () {
+	scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | awk '{s+=$1} END {print s}'
+}
+
 # ALIASES #
 alias :q='exit'
 alias :Q='exit'
@@ -130,6 +134,5 @@ alias xdg-open='$HOME/bin/xdg-open'
 
 alias tfm='PYTHONPATH=$HOME/src/tfm python -m tfm'
 
-alias count_slurm_cpus='scontrol show node | grep CfgTRES | cut -d "=" -f 3 | cut -d "," -f 1 | awk '{s+=$1} END {print s}''
 
 alias slurm_usage='sshare -a -A genetics | (sed -u 3q ; sort -n -r -k 5)'
