@@ -31,27 +31,20 @@ set-face global MatchingChar white,black+b
 # tabs as 4 chars
 set-option global tabstop 4
 
-# enable "soft" line wrap
-addhl global/ wrap
+# don't wrap in words, keep indentation
+addhl global/ wrap -word -indent
 
 # enable pasting on middle mouse click
-hook global RawKey <mouse:press:middle:.*> %{ exec !wl-paste<space>-o<ret> }
+hook global RawKey <mouse:press:middle:.*> %{ exec !wl-paste<space>-p<ret> }
 
 # enable git support
 hook global WinCreate .* %{
     git show-diff
 }
 
-
 hook global BufWritePost .* %{
-#    git update-diff
+    git update-diff
 }
-
-# autocomplete using tab key
-#hook global InsertCompletionShow .* %{ map window insert <tab> <c-n> }
-#hook global InsertCompletionShow .* %{ map window insert <s-tab> <c-p> }
-#hook global InsertCompletionHide .* %{ unmap window insert <tab> <c-n> }
-#hook global InsertCompletionHide .* %{ unmap window insert <s-tab> <c-p> }
 
 # always remove trailing whitespace
 hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
@@ -67,9 +60,12 @@ add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
 hook global BufCreate APKBUILD %{
     set-option buffer filetype sh
 }
+hook global BufCreate .*\.ksh %{
+	set-option buffer filetype sh
+}
 hook global BufSetOption filetype=sh %{
     set buffer formatcmd 'shfmt'
-    set buffer lintcmd 'shellcheck -f gcc'
+    set buffer lintcmd 'shellcheck -fgcc -Cnever'
     hook buffer BufWritePost .* %{ lint }
     hook buffer InsertEnd .* %{ lint }
     hook buffer NormalIdle .* %{ lint }
@@ -78,18 +74,13 @@ hook global BufSetOption filetype=sh %{
 # create python development environment
 hook global BufSetOption filetype=python %{
     set buffer formatcmd 'autopep8 - '
-    #set buffer lintcmd 'flake8 --ignore=W191 --format="%(path)s:%(row)d:%(col)d: error: %(text)s"'
-    #hook buffer BufWritePost .* %{ lint }
-    #hook buffer InsertEnd .* %{ lint }
-    #hook buffer NormalIdle .* %{ lint }
-    jedi-enable-autocomplete
+    set-option window lintcmd "flake8 --filename='*' --format='%%(path)s:%%(row)d:%%(col)d: error: %%(text)s' --ignore=E121,E123,E126,E226,E242,E704,W503,W504,E501,E221,E127,E128,E129,F405"    jedi-enable-autocomplete
 }
 
 # create c development environment
-hook global BufSetOption filetype=c %{
+hook global BufSetOption filetype=(c|cc|h) %{
     set buffer formatcmd 'indent -linux -i4 -ts4'
-    clang-enable-autocomplete
-    clang-enable-diagnostics
+    clang-enable-autocomplete; clang-enable-diagnostics
     set buffer clang_options '-std=c11 -Wall -Wextra -pedantic'
     alias buffer lint clang-parse
     alias buffer lint-next clang-diagnostics-next
@@ -98,20 +89,12 @@ hook global BufSetOption filetype=c %{
     hook buffer NormalIdle .* %{ lint }
 }
 
-# set up markdown environment
-hook global BufSetOption filetype=markdown %{
-    # set word wrap
-    add-highlighter buffer/wordwrap wrap -word
-}
-
 # set up html environment
 hook global BufSetOption filetype=html %{
     set buffer lintcmd "tidy -e -omit --gnu-emacs yes --quiet yes 2>&1"
     set buffer tabstop 2
     set buffer disabled_hooks .*-indent
     hook buffer BufWritePost .* %{ lint }
-    #hook buffer InsertEnd .* %{ lint }
-    #hook buffer NormalIdle .* %{ lint }
 }
 
 # set up verilog development environment
@@ -141,10 +124,6 @@ hook global BufCreate .*\.latex %{
     set-option buffer filetype latex
 }
 hook global BufSetOption filetype=latex %{
-    # don't wrap words around
-    add-highlighter window/wordwrap wrap -word
-
-    #set-option buffer makecmd 'latexmk -pdf -quiet'
     set-option buffer makecmd 'pdflatex'
     set-option buffer lintcmd 'chklatex %f:%l:%c: %k: %n %m'
     set-option buffer formatcmd 'latexindent'
@@ -160,10 +139,13 @@ hook global BufSetOption filetype=go %{
     set-option buffer formatcmd 'gofmt'
     set-option buffer makecmd 'go build'
     hook buffer BufWritePost .* %{ format }
-    #hook buffer InsertEnd .* %{ lint }
-    #hook buffer NormalIdle .* %{ lint }
 }
-
+# set up json environment
+hook global BufSetOption filetype=json %{
+    set-option buffer lintcmd %{ run() { cat -- "$1" | jq 2>&1 | awk -v filename="$1" '/ at line [0-9]+, column [0-9]+$/ { line=$(NF - 2); column=$NF; sub(/ at line [0-9]+, column [0-9]+$/, ""); printf "%s:%d:%d: error: %s", filename, line, column, $0; }'; } && run }
+    set-option buffer formatcmd "jq --indent %opt{tabstop} ."
+    hook buffer BufWritePost .* %{ lint }
+}
 ###########
 # PLUGINS #
 ###########
@@ -179,29 +161,23 @@ evaluate-commands %sh{
 }
 bundle-noload kak-bundle https://codeberg.org/jdugan6240/kak-bundle
 
-bundle kakoune-expand "https://github.com/occivink/kakoune-expand"
-
-bundle kakoune-mirror "https://github.com/delapouite/kakoune-mirror" %{
-    # Suggested mapping: use ' to get into mirror mode
-    map global normal "'" ': enter-user-mode -lock mirror<ret>'
-}
-
 # clipboard integration
 bundle clipb "https://github.com/NNBnh/clipb.kak" %{
 	clipb-detect
 	clipb-enable
 }
+set-option global clipb_multiple_selections 'true'
 
 bundle smarttab.kak "https://github.com/andreyorst/smarttab.kak" %{
-    hook global WinSetOption filetype=(c|verilog|sh) noexpandtab
-    hook global WinSetOption filetype=(python|java|html) expandtab
+    hook global BufSetOption filetype=(c|verilog|sh) noexpandtab
+    hook global BufSetOption filetype=(python|java|html) expandtab
 }
 
 #bundle "https://github.com/kak-lsp/kak-lsp" do %{
 #    cargo install --locked --force --path .
 #} # Installed via distribution package management
-eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with kak-bundle
-hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
+eval %sh{kak-lsp}  # Not needed if you load it with kak-bundle
+hook global BufSetOption filetype=(python|go|latex|c|cpp) %{
     lsp-enable-window
     lsp-auto-hover-enable
     # format buffer on write
@@ -211,15 +187,14 @@ hook global WinSetOption filetype=(python|go|latex|c|cpp) %{
     set global lsp_auto_highlight_references true
 }
 
-bundle kakoune-rainbow "https://github.com/jjk96/kakoune-rainbow"
+bundle kakoune-rainbow "https://github.com/jjk96/kakoune-rainbow" %{
+    hook global WinCreate .* %{ rainbow-enable }
+}
 
 bundle kakoune-verilog "https://github.com/tmahlburg/kakoune-verilog"
 bundle kakoune-systemverilog "https://github.com/tmahlburg/kakoune-systemverilog"
 
 bundle active-window.kak "https://github.com/greenfork/active-window.kak"
-
-# called via woc
-bundle wordcount.kak "https://github.com/ftonneau/wordcount.kak"
 
 bundle insert-indicator "https://github.com/casonadams/insert-indicator"
 bundle kak-ansi "https://github.com/eraserhd/kak-ansi"
