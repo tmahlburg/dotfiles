@@ -24,9 +24,9 @@ exec gammastep -l 51.3:12.4 &
 exec wluma &
 
 # screen lock & inactivity handling
-exec_always pkill swayidle ; swayidle -w \
+exec_always "pkill swayidle ; swayidle -w \
 		before-sleep lock.sh \
-		timeout 900 'loginctl sleep'
+		timeout 900 'loginctl sleep'"
 exec sway-audio-idle-inhibit
 
 # notifications
