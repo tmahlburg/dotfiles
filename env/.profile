@@ -43,12 +43,14 @@ fi
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # run spotifyd, if available
-if [ -f "/usr/bin/spotifyd" ] ; then
-   spotifyd >/dev/null
+if command -v spotifyd >/dev/null ; then
+    if ! pgrep spotifyd >/dev/null ; then
+        spotifyd >/dev/null
+    fi
 fi
 
 # run onedrive
-if [ -f "/usr/bin/onedrive" ] ; then
+if command -v onedrive >/dev/null; then
     if ! pgrep onedrive >/dev/null ; then
        onedrive -m --enable-logging >/dev/null &
     fi
